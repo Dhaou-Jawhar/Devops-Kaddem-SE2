@@ -53,9 +53,9 @@ public class UniversiteServiceImplTest {
 
         if (result.size() == 2) {
             log.info("Test Passed: Result size is 1 as expected.");
-            System.err.println("--------------[Test 1]-------------------\n Test Passed: Result size is 1 as expected. \n -------------------------------------------------------------");
+            System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Passed: Result size is 1 as expected. \n -------------------------------------------------------------");
         } else {
-            System.err.println("--------------[Test 1]-------------------\n Test Failed: Expected result size 1, but got " + result.size() + "\n -------------------------------------------------------------");
+            System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Failed: Expected result size 1, but got " + result.size() + "\n -------------------------------------------------------------");
         }
 
         assertEquals(2, result.size());
@@ -75,7 +75,7 @@ public class UniversiteServiceImplTest {
         assertEquals(expectedUniversite, retrievedUniversite);
 
         if (expectedUniversite == retrievedUniversite) {
-            System.err.println( "--------------[Test 1]-------------------\n "+expectedUniversite.getNomUniv()+" IS SUCCESSFULY DELETED \n -------------------------------------------------------------");
+            System.err.println( "--------------[Test : Delete Universite Method ]-------------------\n "+expectedUniversite.getNomUniv()+" IS SUCCESSFULY DELETED \n -------------------------------------------------------------");
         }
     }
 
