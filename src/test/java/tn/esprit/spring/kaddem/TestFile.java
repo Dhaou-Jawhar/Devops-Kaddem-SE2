@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @Slf4j
-public class UniversiteServiceImplTest {
+public class TestFile {
 
     @InjectMocks
     private UniversiteServiceImpl universiteService;
