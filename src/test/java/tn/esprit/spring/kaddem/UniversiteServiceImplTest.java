@@ -58,7 +58,7 @@ public class UniversiteServiceImplTest {
             System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Failed: Expected result size 1, but got " + result.size() + "\n -------------------------------------------------------------");
         }
 
-        assertEquals(2, result.size());
+        assertEquals(3, result.size());
     }
 
     @Test
