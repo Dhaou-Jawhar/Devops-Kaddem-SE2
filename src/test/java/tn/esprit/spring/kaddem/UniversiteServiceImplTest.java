@@ -51,13 +51,13 @@ public class UniversiteServiceImplTest {
 
         List<Universite> result = universiteService.retrieveAllUniversites();
 
-        if (result.size() == 1) {
+        if (result.size() == 3) {
             System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Passed: Result size is 1 as expected. \n -------------------------------------------------------------");
         } else {
             System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Failed: Expected result size 1, but got " + result.size() + "\n -------------------------------------------------------------");
         }
 
-        //assertEquals(3, result.size());
+        assertEquals(3, result.size());
     }
 
     @Test
