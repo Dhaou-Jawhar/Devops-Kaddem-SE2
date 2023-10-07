@@ -51,7 +51,7 @@ public class UniversiteServiceImplTest {
 
         List<Universite> result = universiteService.retrieveAllUniversites();
 
-        if (result.size() == 2) {
+        if (result.size() == 1) {
             System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Passed: Result size is 1 as expected. \n -------------------------------------------------------------");
         } else {
             System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Failed: Expected result size 1, but got " + result.size() + "\n -------------------------------------------------------------");
