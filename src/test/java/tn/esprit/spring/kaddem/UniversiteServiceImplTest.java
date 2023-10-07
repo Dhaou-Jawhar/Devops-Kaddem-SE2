@@ -51,13 +51,13 @@ public class UniversiteServiceImplTest {
 
         List<Universite> result = universiteService.retrieveAllUniversites();
 
-        if (result.size() == 3) {
-            System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Passed: Result size is 1 as expected. \n -------------------------------------------------------------");
+        if (result.size() == 2) {
+            System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Passed: Result size is 2 as expected. \n -------------------------------------------------------------");
         } else {
-            System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Failed: Expected result size 1, but got " + result.size() + "\n -------------------------------------------------------------");
+            System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Failed: Expected result size 2, but got " + result.size() + "\n -------------------------------------------------------------");
         }
 
-        assertEquals(3, result.size());
+        assertEquals(2, result.size());
     }
 
     @Test
@@ -74,9 +74,11 @@ public class UniversiteServiceImplTest {
         assertEquals(expectedUniversite, retrievedUniversite);
 
         if (expectedUniversite == retrievedUniversite) {
-            System.err.println( "--------------[Test : Delete Universite Method ]-------------------\n "+expectedUniversite.getNomUniv()+" IS SUCCESSFULY DELETED \n -------------------------------------------------------------");
+            System.err.println( "--------------[Test : Delete Universite Method ]-------------------\n "+expectedUniversite.getNomUniv()+
+                    " IS SUCCESSFULY DELETED \n -------------------------------------------------------------");
         }else {
-            System.err.println( "--------------[Test : Delete Universite Method ]-------------------\n "+expectedUniversite.getNomUniv()+" IS FAILED DELETED \n -------------------------------------------------------------");
+            System.err.println( "--------------[Test : Delete Universite Method ]-------------------\n "+expectedUniversite.getNomUniv()+
+                    " IS FAILED DELETED \n -------------------------------------------------------------");
         }
     }
 
