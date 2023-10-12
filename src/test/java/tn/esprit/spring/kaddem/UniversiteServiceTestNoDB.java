@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.spring.kaddem.entities.Universite;
 import tn.esprit.spring.kaddem.repositories.DepartementRepository;
 import tn.esprit.spring.kaddem.repositories.UniversiteRepository;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+@SpringBootTest
 @Slf4j
 public class UniversiteServiceTestNoDB {
     @InjectMocks
@@ -40,8 +42,7 @@ public class UniversiteServiceTestNoDB {
         } else {
             System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Failed: Expected result size 2, but got " + result.size() + "\n -------------------------------------------------------------");
         }
-
-        assertEquals(3, result.size());
+        
         assertEquals(2, result.size());
     }
 
