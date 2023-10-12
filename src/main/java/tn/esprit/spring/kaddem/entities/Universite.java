@@ -13,7 +13,7 @@ public class Universite implements Serializable{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer idUniv;
     private String nomUniv;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Departement> departements;
     public Universite() {
