@@ -59,9 +59,15 @@ class DepartementServiceImplTest {
 
         // Vérifiez le résultat
         when(departementRepository.findAll()).thenReturn(resultat);
+        if (resultat.size() == 2) {
+            System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Passed: Result size is 2 as expected. \n -------------------------------------------------------------");
+        } else {
+            System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Failed: Expected result size 2, but got " + resultat.size() + "\n -------------------------------------------------------------");
+        }
         assertEquals(2, resultat.size()); // Assurez-vous que la taille de la liste est correcte
         assertEquals("esprit", resultat.get(0).getNomDepart()); // Vérifiez le nom du premier département
         assertEquals("amen", resultat.get(1).getNomDepart()); // Vérifiez le nom du deuxième département
     }
+
     }
 
