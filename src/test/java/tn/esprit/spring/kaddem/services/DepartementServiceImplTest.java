@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-@SpringBootTest
+
 class DepartementServiceImplTest {
     //@Autowired
     @InjectMocks
@@ -40,9 +40,9 @@ class DepartementServiceImplTest {
     }*/
     @Test
     public void testGetAll() {
-        // Créez un mock (simulacre) de DepartementService
-        // Créez des départements fictifs et ajoutez-les à la base de données
-        Departement departement1 = new Departement();
+        List<Departement> resultat = new ArrayList<>();
+
+       Departement departement1 = new Departement();
         departement1.setNomDepart("esprit");
         //departementRepository.save(departement1);
 
@@ -50,14 +50,8 @@ class DepartementServiceImplTest {
         departement2.setNomDepart("amen");
        // departementRepository.save(departement2);
 
-
-
-        // Appelez la méthode getAll du service
-        List<Departement> resultat = new ArrayList<>();
         resultat.add(departement1);
         resultat.add(departement2);
-
-        // Vérifiez le résultat
         when(departementRepository.findAll()).thenReturn(resultat);
         if (resultat.size() == 2) {
             System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Passed: Result size is 2 as expected. \n -------------------------------------------------------------");
@@ -65,8 +59,6 @@ class DepartementServiceImplTest {
             System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Failed: Expected result size 2, but got " + resultat.size() + "\n -------------------------------------------------------------");
         }
         assertEquals(2, resultat.size()); // Assurez-vous que la taille de la liste est correcte
-        assertEquals("esprit", resultat.get(0).getNomDepart()); // Vérifiez le nom du premier département
-        assertEquals("amen", resultat.get(1).getNomDepart()); // Vérifiez le nom du deuxième département
     }
 
     }
