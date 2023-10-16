@@ -47,11 +47,6 @@
             <version>1.6.9</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.7</version> <!-- Assurez-vous d'utiliser la dernière version -->
-        </dependency>
 
 
     </dependencies>

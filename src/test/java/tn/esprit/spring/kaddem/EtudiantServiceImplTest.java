@@ -28,7 +28,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 @Slf4j
-@SpringBootTest
 public class EtudiantServiceImplTest {
     @InjectMocks
     private EtudiantServiceImpl etudiantService;
@@ -77,7 +76,7 @@ public class EtudiantServiceImplTest {
         System.err.println("Etape 2 de la méthode testRetrieveAllEtudiants \n Affichage de la liste d'étudiants!"+etudiantRepository.findAll());
 
 
-       // when(etudiantRepository.findAll()).thenReturn(etudiants);
+        when(etudiantRepository.findAll()).thenReturn(etudiants);
 
         List<Etudiant> result = etudiantService.retrieveAllEtudiants();
         System.err.println("Etape 3 de la méthode testRetrieveAllEtudiants \n Vérification du résultat!");
