@@ -15,9 +15,11 @@ import java.util.Date;
 import java.util.List;
 import static org.mockito.Mockito.*;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ContratServiceImplTest {
+
 
     @InjectMocks
     private ContratServiceImpl contratService;
@@ -88,5 +90,6 @@ class ContratServiceImplTest {
         verify(contratRepository, times(1)).save(newContrat);
 
         System.err.println("testAddContrat : SUCCESS");
-    }
+
+}
 }
