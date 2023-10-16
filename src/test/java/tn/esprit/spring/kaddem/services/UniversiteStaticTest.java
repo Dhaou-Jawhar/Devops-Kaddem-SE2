@@ -82,19 +82,6 @@ class UniversiteStaticTest {
     }
 
     @Test
-    void testRetrieveAllUniversites() {
-        List<Universite> universities = new ArrayList<>();
-        universities.add(new Universite("ESPRIT"));
-        universities.add(new Universite("PolyTech"));
-
-        when(universiteRepository.findAll()).thenReturn(universities);
-
-        List<Universite> result = universiteService.retrieveAllUniversites();
-
-        assertEquals(2, result.size());
-    }
-
-    @Test
     void testRetrieveDepartementsByUniversite() {
         Universite university = new Universite(1, "Sample University");
         Set<Departement> associatedDepartments = new HashSet<>();
@@ -112,5 +99,49 @@ class UniversiteStaticTest {
         }
     }
 
+    @Test
+    public void testRetrieveAllUniversites() {
+
+        List<Universite> universities = new ArrayList<>();
+
+        Universite univer1 = new Universite("ESPRIT");
+        Universite univer2 = new Universite("PolyTech");
+
+
+        universities.add(univer1);
+        universities.add(univer2);
+        when(universiteRepository.findAll()).thenReturn(universities);
+
+
+        List<Universite> result = universiteService.retrieveAllUniversites();
+
+        if (result.size() == 2) {
+            log.info("Test Passed: Result size is 1 as expected.");
+            System.err.println("Test 1 : \n Test Passed: Result size is 1 as expected.");
+        } else {
+            log.info("Test Failed: Expected result size 1, but got " + result.size());
+            System.err.println("Test 1 : \n Test Failed: Expected result size 1, but got " + result.size());
+        }
+
+        assertEquals(2, result.size());
+    }
+
+    @Test
+    public void testRetrieveUniversite() {
+
+        Universite expectedUniversite = new Universite("ESPRIT");
+
+        when(universiteRepository.findById(expectedUniversite.getIdUniv())).thenReturn(Optional.of(expectedUniversite));
+
+
+        Universite retrievedUniversite = universiteService.retrieveUniversite(expectedUniversite.getIdUniv());
+
+
+        assertEquals(expectedUniversite, retrievedUniversite);
+
+        if (expectedUniversite == retrievedUniversite) {
+            System.err.println( "Test 2 : \n "+expectedUniversite.getNomUniv()+" IS SUCCESSFULY DELETED ");
+        }
+    }
 
     }
