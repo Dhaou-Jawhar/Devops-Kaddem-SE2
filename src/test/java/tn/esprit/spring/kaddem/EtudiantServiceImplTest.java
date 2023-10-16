@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 @Slf4j
-public class EtudiantServiceImplTest {
+ class EtudiantServiceImplTest {
     @InjectMocks
     private EtudiantServiceImpl etudiantService;
 
@@ -59,7 +59,7 @@ public class EtudiantServiceImplTest {
 
     @Test
     @Transactional
-    public void testRetrieveAllEtudiants() {
+     void testRetrieveAllEtudiants() {
         System.err.println("Etape 1 de la méthode testRetrieveAllEtudiants \n Création de la liste d'étudiants!");
         // Create a list of Etudiant objects for testing
         List<Etudiant> etudiants = new ArrayList<>();
@@ -96,7 +96,7 @@ public class EtudiantServiceImplTest {
 
     @Test
     @Transactional
-    public void testAddEtudiant() {
+     void testAddEtudiant() {
         Etudiant etudiant = new Etudiant();
         etudiant.setNomE("Houssem");
 
@@ -127,18 +127,19 @@ public class EtudiantServiceImplTest {
         }
     }
     @Test
-    public void testAssignEtudiantToDepartement() {
-        Integer etudiantId = 1;
-        Integer departementId = 2;
+     void testAssignEtudiantToDepartement() {
+
         Etudiant etudiant = new Etudiant();
         etudiant.setNomE("Houssem");
+        //etudiantRepository.save(etudiant);
         Departement departement = new Departement();
         departement.setNomDepart("5SE2");
+       // departementRepository.save(departement);
 
-        when(etudiantRepository.findById(etudiantId)).thenReturn(Optional.of(etudiant));
-        when(departementRepository.findById(departementId)).thenReturn(Optional.of(departement));
+        when(etudiantRepository.findById(etudiant.getIdEtudiant())).thenReturn(Optional.of(etudiant));
+        when(departementRepository.findById(departement.getIdDepart())).thenReturn(Optional.of(departement));
 
-        etudiantService.assignEtudiantToDepartement(etudiantId, departementId);
+        etudiantService.assignEtudiantToDepartement(etudiant.getIdEtudiant(), departement.getIdDepart());
 
         if (departement.equals(etudiant.getDepartement())) {
             log.info("Test Assign Etudiant To Departement a réussi !");
