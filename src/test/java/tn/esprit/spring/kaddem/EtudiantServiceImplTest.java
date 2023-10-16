@@ -71,18 +71,10 @@ import static org.mockito.Mockito.*;
         etudiantService.addEtudiant(etudiant2);
         etudiants.add(etudiant1);
         etudiants.add(etudiant2);
-
-
         System.err.println("Etape 2 de la méthode testRetrieveAllEtudiants \n Affichage de la liste d'étudiants!"+etudiantRepository.findAll());
-
-
         when(etudiantRepository.findAll()).thenReturn(etudiants);
-
         List<Etudiant> result = etudiantService.retrieveAllEtudiants();
         System.err.println("Etape 3 de la méthode testRetrieveAllEtudiants \n Vérification du résultat!");
-
-
-
         if (etudiants.size() == result.size()) {
             log.info("Le test a réussi : La taille de la liste correspond.");
         } else {
@@ -146,7 +138,6 @@ import static org.mockito.Mockito.*;
         } else {
             log.error("Test Assign Etudiant To Departement a échoué !");
         }
-
         verify(etudiantRepository, times(1)).save(etudiant);
     }
 
