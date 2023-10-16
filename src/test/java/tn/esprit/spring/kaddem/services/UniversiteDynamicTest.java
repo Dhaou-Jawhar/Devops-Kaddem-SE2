@@ -9,7 +9,7 @@ import tn.esprit.spring.kaddem.entities.Departement;
 import tn.esprit.spring.kaddem.entities.Universite;
 import tn.esprit.spring.kaddem.repositories.DepartementRepository;
 import tn.esprit.spring.kaddem.repositories.UniversiteRepository;
-import tn.esprit.spring.kaddem.services.UniversiteServiceImpl;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +17,7 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 @SpringBootTest
-public class UnivTestDB {
+public class UniversiteDynamicTest {
     @Autowired
     private UniversiteServiceImpl universiteService;
 
@@ -34,12 +34,12 @@ public class UnivTestDB {
         departementRepository.deleteAll();
     }
 
-    /*@AfterEach
+    @AfterEach
     public void tearDown() {
         // Clear the database after each test
         universiteRepository.deleteAll();
         departementRepository.deleteAll();
-    }*/
+    }
 
     @Test
     public void testUniversityServiceScenario() {
@@ -54,7 +54,7 @@ public class UnivTestDB {
         Universite retrievedUniversity = universiteService.retrieveUniversite(addedUniversity.getIdUniv());
         assertNotNull(retrievedUniversity);
         assertEquals(addedUniversity.getIdUniv(), retrievedUniversity.getIdUniv());
-        System.err.println("Step 2: Retrieve a University : Test Passed ( the Univ name = " +addedUniversity.getNomUniv()+" )");
+        System.err.println("Step 2: Retrieve a University : Test Passed ( the Univ name = " + addedUniversity.getNomUniv() + " )");
 
         // Step 3: Update a University
         addedUniversity.setNomUniv("Updated University");
@@ -94,7 +94,7 @@ public class UnivTestDB {
         assertNull(deletedUniversity);*/
 
         // Step 6: Delete a University
-        /*universiteService.deleteUniversite(updatedUniversity.getIdUniv());
+        universiteService.deleteUniversite(updatedUniversity.getIdUniv());
 
         Universite deletedUniversity = null;
         try {
@@ -107,6 +107,6 @@ public class UnivTestDB {
             System.err.println("Step 6: Delete a University: Test Failed ");
         }
 
-        assertNull(deletedUniversity, "University should be deleted");*/
+        assertNull(deletedUniversity, "University should be deleted");
     }
 }
