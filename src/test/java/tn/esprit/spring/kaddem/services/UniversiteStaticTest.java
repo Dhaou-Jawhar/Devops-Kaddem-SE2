@@ -100,7 +100,7 @@ class UniversiteStaticTest {
     }
 
     @Test
-    public void testRetrieveAllUniversites() {
+    void testRetrieveAllUniversites() {
 
         List<Universite> universities = new ArrayList<>();
 
@@ -127,7 +127,7 @@ class UniversiteStaticTest {
     }
 
     @Test
-    public void testRetrieveUniversite() {
+    void testRetrieveUniversite() {
 
         Universite expectedUniversite = new Universite("ESPRIT");
 
