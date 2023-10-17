@@ -15,9 +15,7 @@ import tn.esprit.spring.kaddem.repositories.EquipeRepository;
 import tn.esprit.spring.kaddem.repositories.EtudiantRepository;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -44,14 +42,17 @@ public class EtudiantServiceImpl implements IEtudiantService {
 	}
 
 	public Etudiant retrieveEtudiant(Integer idEtudiant) {
-		return etudiantRepository.findById(idEtudiant).get();
+		Optional<Etudiant> etudiantOptional = etudiantRepository.findById(idEtudiant);
+		return etudiantOptional.get();
 	}
+
 
 	public void removeEtudiant(Integer idEtudiant) {
 		Etudiant e = retrieveEtudiant(idEtudiant);
 		etudiantRepository.delete(e);
 	}
 
+	@Transactional
 	public void assignEtudiantToDepartement(Integer etudiantId, Integer departementId) {
 		Etudiant etudiant = etudiantRepository.findById(etudiantId).orElse(null);
 		Departement departement = departementRepository.findById(departementId).orElse(null);
@@ -60,24 +61,25 @@ public class EtudiantServiceImpl implements IEtudiantService {
 	}
 
 	@Transactional
-	public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe) {
-		Contrat c = contratRepository.findById(idContrat).orElse(null);
-		Equipe eq = equipeRepository.findById(idEquipe).orElse(null);
+	public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe){
+		Contrat c=contratRepository.findById(idContrat).orElse(null);
+		Equipe eq=equipeRepository.findById(idEquipe).orElse(null);
 		c.setEtudiant(e);
 		eq.getEtudiants().add(e);
+//		e.getEquipes().add(eq);
+//		e.getContrats().add(c);
 		return e;
 	}
+
+
+
 
 	public List<Etudiant> getEtudiantsByDepartement(Integer idDepartement) {
 		return etudiantRepository.findEtudiantsByDepartement_IdDepart((idDepartement));
 	}
 
-	public List<Etudiant> getEtudiants(List<Etudiant> etudiants) {
-		List<Etudiant> et = new ArrayList<>();
-		for (int i = 0; i < etudiants.size(); i++) {
-			et.add(etudiants.get(i));
-		}
-		return et;
+	public Etudiant getEtudiantParId(int id) {
+		return etudiantRepository.findById(id).orElse(null);
 	}
 
 }
