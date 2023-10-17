@@ -9,9 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.spring.kaddem.entities.Departement;
 import tn.esprit.spring.kaddem.repositories.DepartementRepository;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,33 +27,23 @@ class DepartementServiceImplTest {
     public void setUp() {
         MockitoAnnotations.openMocks(this);
     }
-   /* @Test
-    void addDepartement() {
-        Departement dep = new Departement();
-        dep.setNomDepart("amen");
-        Departement adddep = departementService.addDepartement(dep);
 
-        assertNotNull(adddep);
-        //assertEquals("ess", adddep.getNomDepart());
-        assertEquals("amen", adddep.getNomDepart());
-
-        System.err.println("Step 1: Add a University : Test Passed");
-    }*/
     @Test
-    public void testGetAll() {
+     void testGetAll() {
         List<Departement> resultat = new ArrayList<>();
 
        Departement departement1 = new Departement();
-        departement1.setNomDepart("esprit");
+        departement1.setNomDepart("Esprit Departement");
         //departementRepository.save(departement1);
 
         Departement departement2 = new Departement();
-        departement2.setNomDepart("amen");
+        departement2.setNomDepart("EAmen Departement");
        // departementRepository.save(departement2);
 
         resultat.add(departement1);
         resultat.add(departement2);
         when(departementRepository.findAll()).thenReturn(resultat);
+        List<Departement> aff =departementService.retrieveAllDepartements();
         if (resultat.size() == 2) {
             System.err.println("--------------[Test : Find All Universite Method]-------------------\n Test Passed: Result size is 2 as expected. \n -------------------------------------------------------------");
         } else {
@@ -61,5 +52,53 @@ class DepartementServiceImplTest {
         assertEquals(2, resultat.size()); // Assurez-vous que la taille de la liste est correcte
     }
 
+    @Test
+    void testAddDepartement() {
+        Departement departement = new Departement();
+        departement.setNomDepart("Esprit Departement");
+        when(departementRepository.save(departement)).thenReturn(departement);
+        Departement addedDepartement = departementService.addDepartement(departement);
+        //verify(departementRepository, times(1)).save(departement);
+        assertEquals("Esprit Departement", addedDepartement.getNomDepart());
+        System.out.println(addedDepartement.getNomDepart()+" ajouter");
+        }
+
+    @Test
+    void testRetrieveDepartement() {
+        // Create a sample Departement object
+        Departement dep= new Departement();
+        dep.setIdDepart(1);
+        dep.setNomDepart("Esprit Departement");
+        when(departementRepository.findById(dep.getIdDepart())).thenReturn(Optional.of(dep));
+        Departement retrievedDepartement = departementService.retrieveDepartement(1);
+        verify(departementRepository).findById(1);
+        assertEquals(dep, retrievedDepartement);
+        assertEquals(1, retrievedDepartement.getIdDepart());
+        assertEquals("Esprit Departement", retrievedDepartement.getNomDepart());
+        boolean allAssertionsPassed = true;
+        if (!allAssertionsPassed) {
+             System.out.println("Erreur");
+        } else {
+             System.out.println("Retrieved Departement: " + retrievedDepartement.getNomDepart());
+        }
     }
+    @Test
+    void testDeleteDepartement() {
+        Departement dep = new Departement();
+        dep.setIdDepart(1);
+        dep.setNomDepart("Esprit Departement");
+        when(departementRepository.findById(dep.getIdDepart())).thenReturn(Optional.of(dep));
+        departementService.deleteDepartement(1);
+        verify(departementRepository).findById(1);
+        verify(departementRepository).delete(dep);
+        if (!departementRepository.existsById(1)) {
+            System.out.println("Departement Deleted Successfully");
+        } else {
+            // Print an error message if the Departement still exists
+            System.out.println("Error: Departement Deletion Failed");
+        }
+    }
+
+
+}
 

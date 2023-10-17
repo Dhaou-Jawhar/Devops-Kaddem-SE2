@@ -26,4 +26,8 @@ public class Departement implements Serializable{
     @JsonIgnore
     private Set<Etudiant> etudiants;
 
+    public Departement(int id,String nomDepart) {
+        this.idDepart=id;
+        this.nomDepart = nomDepart;
+    }
 }
