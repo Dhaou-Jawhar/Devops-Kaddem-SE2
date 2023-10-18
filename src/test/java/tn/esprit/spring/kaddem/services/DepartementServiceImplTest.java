@@ -77,9 +77,9 @@ class DepartementServiceImplTest {
         assertEquals("Esprit Departement", retrievedDepartement.getNomDepart());
         boolean allAssertionsPassed = true;
         if (!allAssertionsPassed) {
-             System.out.println("Erreur");
+             System.err.println("Erreur");
         } else {
-             System.out.println("Retrieved Departement: " + retrievedDepartement.getNomDepart());
+             System.err.println("Retrieved Departement: " + retrievedDepartement.getNomDepart());
         }
     }
     @Test
@@ -92,10 +92,10 @@ class DepartementServiceImplTest {
         verify(departementRepository).findById(1);
         verify(departementRepository).delete(dep);
         if (!departementRepository.existsById(1)) {
-            System.out.println("Departement Deleted Successfully");
+            System.err.println("Departement Deleted Successfully");
         } else {
             // Print an error message if the Departement still exists
-            System.out.println("Error: Departement Deletion Failed");
+            System.err.println("Error: Departement Deletion Failed");
         }
     }
 
