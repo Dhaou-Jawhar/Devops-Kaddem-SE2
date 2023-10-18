@@ -98,7 +98,26 @@ class DepartementServiceImplTest {
             System.err.println("Error: Departement Deletion Failed");
         }
     }
+    @Test
+    void testUpdateDepartement() {
+        Departement existingDepartement = new Departement();
+        existingDepartement.setIdDepart(1);
+        existingDepartement.setNomDepart("Esp Departement");
+        when(departementRepository.findById(existingDepartement.getIdDepart())).thenReturn(Optional.of(existingDepartement));
+        when(departementRepository.save(any(Departement.class))).thenAnswer(invocation -> {
+            Departement updatedEntity = invocation.getArgument(0);
+            existingDepartement.setNomDepart(updatedEntity.getNomDepart());
+            return existingDepartement;
+        });
 
+        System.err.println("Before Test Update = " + existingDepartement.getNomDepart());
+        existingDepartement.setNomDepart("Esp1 Departement Name");
+        Departement updatedDepartement = departementService.updateDepartement(existingDepartement);
+        assertEquals("Esp1 Departement Name", updatedDepartement.getNomDepart());
+        verify(departementRepository).save(existingDepartement);
+
+        System.err.println("After Test Update = " + existingDepartement.getNomDepart());
+    }
 
 }
 
