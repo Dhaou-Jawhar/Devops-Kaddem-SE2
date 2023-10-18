@@ -8,7 +8,6 @@ import tn.esprit.spring.kaddem.entities.Departement;
 import tn.esprit.spring.kaddem.repositories.DepartementRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 
@@ -28,12 +27,9 @@ public class DepartementServiceImpl implements IDepartementService{
 		return departementRepository.save(d);
 	}
 
-	public  Departement retrieveDepartement (Integer idDepart) {
-		return departementRepository.findById(idDepart)
-				.orElse(new Departement("Default Department")); // Provide a default Department object or value here
+	public  Departement retrieveDepartement (Integer idDepart){
+		return departementRepository.findById(idDepart).get();
 	}
-
-
 	public  void deleteDepartement(Integer idDepartement){
 		Departement d=retrieveDepartement(idDepartement);
 		departementRepository.delete(d);
