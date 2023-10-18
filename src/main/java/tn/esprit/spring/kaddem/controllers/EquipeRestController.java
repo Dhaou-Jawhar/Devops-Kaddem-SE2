@@ -1,6 +1,7 @@
 package tn.esprit.spring.kaddem.controllers;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.spring.kaddem.entities.Equipe;
@@ -12,33 +13,34 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/equipe")
 public class EquipeRestController {
+	@Autowired
 	IEquipeService equipeService;
-	// http://localhost:8089/Kaddem/equipe/retrieve-all-equipes
+	// http://localhost:8089/kaddem/equipe/retrieve-all-equipes
 	@GetMapping("/retrieve-all-equipes")
 	public List<Equipe> getEquipes() {
 		List<Equipe> listEquipes = equipeService.retrieveAllEquipes();
 		return listEquipes;
 	}
-	// http://localhost:8089/Kaddem/equipe/retrieve-equipe/8
+	// http://localhost:8089/kaddem/equipe/retrieve-equipe/8
 	@GetMapping("/retrieve-equipe/{equipe-id}")
 	public Equipe retrieveEquipe(@PathVariable("equipe-id") Integer equipeId) {
 		return equipeService.retrieveEquipe(equipeId);
 	}
 
-	// http://localhost:8089/Kaddem/equipe/add-equipe
+	// http://localhost:8089/kaddem/equipe/add-equipe
+
 	@PostMapping("/add-equipe")
 	public Equipe addEquipe(@RequestBody Equipe e) {
-		Equipe equipe = equipeService.addEquipe(e);
-		return equipe;
+		return equipeService.addEquipe(e);
 	}
 
-	// http://localhost:8089/Kaddem/equipe/remove-equipe/1
+	// http://localhost:8089/kaddem/equipe/remove-equipe/1
 	@DeleteMapping("/remove-equipe/{equipe-id}")
 	public void removeEquipe(@PathVariable("equipe-id") Integer equipeId) {
 		equipeService.deleteEquipe(equipeId);
 	}
 
-	// http://localhost:8089/Kaddem/equipe/update-equipe
+	// http://localhost:8089/kaddem/equipe/update-equipe
 	@PutMapping("/update-equipe")
 	public Equipe updateEtudiant(@RequestBody Equipe e) {
 		Equipe equipe= equipeService.updateEquipe(e);
