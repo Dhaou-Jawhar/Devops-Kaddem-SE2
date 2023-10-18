@@ -35,6 +35,7 @@ public class EquipeStaticTest {
         Equipe addEquipe = equipeService.addEquipe(equipeToAdd);
 
         assertEquals("BSB", addEquipe.getNomEquipe());
-        System.err.println(addEquipe.getNomEquipe()+" Is Added");
+        System.err.println("One Line with NameEquipe = " + addEquipe.getNomEquipe() + " && NiveauEquipe = " + addEquipe.getNiveau() + " is added successfully");
     }
+
 }

@@ -15,12 +15,14 @@ import java.util.List;
 public class EquipeRestController {
 	@Autowired
 	IEquipeService equipeService;
+
 	// http://localhost:8089/kaddem/equipe/retrieve-all-equipes
 	@GetMapping("/retrieve-all-equipes")
 	public List<Equipe> getEquipes() {
 		List<Equipe> listEquipes = equipeService.retrieveAllEquipes();
 		return listEquipes;
 	}
+
 	// http://localhost:8089/kaddem/equipe/retrieve-equipe/8
 	@GetMapping("/retrieve-equipe/{equipe-id}")
 	public Equipe retrieveEquipe(@PathVariable("equipe-id") Integer equipeId) {
@@ -28,7 +30,6 @@ public class EquipeRestController {
 	}
 
 	// http://localhost:8089/kaddem/equipe/add-equipe
-
 	@PostMapping("/add-equipe")
 	public Equipe addEquipe(@RequestBody Equipe e) {
 		return equipeService.addEquipe(e);
@@ -40,11 +41,11 @@ public class EquipeRestController {
 		equipeService.deleteEquipe(equipeId);
 	}
 
+
 	// http://localhost:8089/kaddem/equipe/update-equipe
-	@PutMapping("/update-equipe")
-	public Equipe updateEtudiant(@RequestBody Equipe e) {
-		Equipe equipe= equipeService.updateEquipe(e);
-		return equipe;
+	@PutMapping("/update-equipe/{equipe-id}")
+	public Equipe updateEquipe(@RequestBody Equipe e,@PathVariable("equipe-id") Integer idEquipe) {
+		return equipeService.updateEquipe(e, idEquipe);
 	}
 
 	@Scheduled(cron="0 0 13 * * *")

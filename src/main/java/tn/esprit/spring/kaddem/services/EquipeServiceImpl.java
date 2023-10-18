@@ -39,8 +39,14 @@ public class EquipeServiceImpl implements IEquipeService {
         return equipeRepository.findById(equipeId).get();
     }
 
-    public Equipe updateEquipe(Equipe e) {
-        return (equipeRepository.save(e));
+    public Equipe updateEquipe(Equipe e, Integer idEquipe) {
+        Equipe equipeExistant = equipeRepository.findById(idEquipe).get();
+        if (equipeExistant != null){
+            equipeExistant.setNomEquipe(e.getNomEquipe());
+            equipeExistant.setNiveau(e.getNiveau());
+            return equipeRepository.save(equipeExistant);
+        }
+        return null;
     }
 
     public void evoluerEquipes() {
