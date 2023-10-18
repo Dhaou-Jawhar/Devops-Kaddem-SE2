@@ -30,4 +30,8 @@ public class Departement implements Serializable{
         this.idDepart=id;
         this.nomDepart = nomDepart;
     }
+
+    public Departement(String nomDepart) {
+        this.nomDepart = nomDepart;
+    }
 }
