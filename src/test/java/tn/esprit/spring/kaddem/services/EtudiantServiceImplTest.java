@@ -23,7 +23,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 
-
 @Slf4j
 @RunWith(MockitoJUnitRunner.class)
 class EtudiantServiceImplTest {
