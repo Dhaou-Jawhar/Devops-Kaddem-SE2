@@ -10,7 +10,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.spring.kaddem.entities.Contrat;
 import tn.esprit.spring.kaddem.entities.Departement;
 import tn.esprit.spring.kaddem.entities.Equipe;
@@ -26,7 +25,7 @@ import static org.mockito.Mockito.*;
 
 @Slf4j
 @RunWith(MockitoJUnitRunner.class)
-class EtudiantServiceImplTest {
+class EtudiantServiceImplTestStatique {
     @InjectMocks
     private EtudiantServiceImpl etudiantService;
 
@@ -62,6 +61,7 @@ class EtudiantServiceImplTest {
         departementRepository.deleteAll();
         etudiantRepository.deleteAll();
         equipeRepository.deleteAll();
+        contratRepository.deleteAll();
     }
 
     @Test

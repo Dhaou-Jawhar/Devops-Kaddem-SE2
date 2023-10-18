@@ -66,8 +66,9 @@ public class EtudiantServiceImpl implements IEtudiantService {
 		Equipe eq=equipeRepository.findById(idEquipe).orElse(null);
 		c.setEtudiant(e);
 		eq.getEtudiants().add(e);
-//		e.getEquipes().add(eq);
-//		e.getContrats().add(c);
+		equipeRepository.save(eq);
+		contratRepository.save(c);
+		etudiantRepository.save(e);
 		return e;
 	}
 
