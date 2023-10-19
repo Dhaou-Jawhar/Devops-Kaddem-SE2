@@ -87,8 +87,8 @@ ContratRepository contratRepository;
 		}
 	}
 	public float getChiffreAffaireEntreDeuxDates(Date startDate, Date endDate){
-		float differenceInTime = endDate.getTime() - startDate.getTime();
-		float difference_In_Days = (differenceInTime / (1000 * 60 * 60 * 24)) % 365;
+		float difference_In_Time = endDate.getTime() - startDate.getTime();
+		float difference_In_Days = (difference_In_Time / (1000 * 60 * 60 * 24)) % 365;
 		float difference_In_months =difference_In_Days/30;
         List<Contrat> contrats=contratRepository.findAll();
 		float chiffreAffaireEntreDeuxDates=0;
