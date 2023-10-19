@@ -52,7 +52,7 @@ class DepartementServiceImplTest {
         assertEquals(2, resultat.size()); // Assurez-vous que la taille de la liste est correcte
     }
 
-  /*  @Test
+   @Test
     void testAddDepartement() {
         Departement departement = new Departement();
         departement.setNomDepart("Esprit Departement");
@@ -117,7 +117,7 @@ class DepartementServiceImplTest {
         verify(departementRepository).save(existingDepartement);
 
         System.err.println("After Test Update = " + existingDepartement.getNomDepart());
-    }*/
+    }
 
 }
 
