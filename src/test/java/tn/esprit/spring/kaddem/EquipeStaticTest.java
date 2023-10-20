@@ -40,7 +40,7 @@ public class EquipeStaticTest {
         Equipe addEquipe = equipeService.addEquipe(equipeToAdd);
 
         assertEquals("BSB", addEquipe.getNomEquipe());
-        System.err.println("Test 1: ADD Method\n One Line with NameEquipe = " + addEquipe.getNomEquipe() + " && Niveau Equipe = " + addEquipe.getNiveau() + " is added successfully");
+        System.err.println("Test 1: Add Method()\n One Line with NameEquipe = " + addEquipe.getNomEquipe() + " && Niveau Equipe = " + addEquipe.getNiveau() + " is added successfully");
     }
 
     @Test
@@ -57,7 +57,7 @@ public class EquipeStaticTest {
             existingEquipe.setNiveau(updatedEntity.getNiveau());
             return existingEquipe;
         });
-        System.err.println("Test 2: Update Method \n Befor Test Update = " + existingEquipe.getNomEquipe());
+        System.err.println("Test 2: Update Method() \n Befor Test Update = " + existingEquipe.getNomEquipe());
         // Act
         // Change the name of the existingUniversity
         existingEquipe.setNomEquipe("Updated Equipe Name");
@@ -100,6 +100,50 @@ public class EquipeStaticTest {
 
         assertEquals(2, result.size());
     }
+
+    @Test
+    void testDeleteEquipe() {
+        // Créer une instance de l'équipe à récupérer
+        Equipe expectedEquipe = new Equipe("Barcelona");
+
+        // Utiliser Mockito pour simuler le comportement de findById du equipeRepository
+        when(equipeRepository.findById(expectedEquipe.getIdEquipe())).thenReturn(Optional.of(expectedEquipe));
+
+        // Appeler la méthode pour récupérer l'équipe
+        Equipe retrievedEquipe = equipeService.retrieveEquipe(expectedEquipe.getIdEquipe());
+
+        // Vérifier si l'équipe attendue est égale à l'équipe récupérée
+        assertEquals(expectedEquipe, retrievedEquipe);
+
+        // Afficher un message indiquant le résultat du test
+        if (expectedEquipe == retrievedEquipe) {
+            System.err.println("Test 4: Delete Method()\n " + expectedEquipe.getNomEquipe() +
+                    " IS SUCCESSFULY DELETED \n ");
+        } else {
+            System.err.println("Test 4: Delete Method()\n " + expectedEquipe.getNomEquipe() +
+                    " IS FAILED DELETED \n ");
+        }
+    }
+
+    @Test
+    void testRetrieveEquipe() {
+        // Créez une instance d'Equipe avec les données de l'équipe que vous souhaitez récupérer
+        Equipe expectedEquipe = new Equipe("Barcelona", Niveau.JUNIOR);
+
+        // Utilisez Mockito pour simuler le comportement de mon repository
+        when(equipeRepository.findById(expectedEquipe.getIdEquipe())).thenReturn(Optional.of(expectedEquipe));
+
+        // Appelez la méthode retrieveEquipe du service pour récupérer l'équipe
+        Equipe retrievedEquipe = equipeService.retrieveEquipe(expectedEquipe.getIdEquipe());
+
+        // Utilisez des assertions pour vérifier si l'équipe récupérée est la même que celle attendue
+        assertEquals(expectedEquipe, retrievedEquipe);
+
+        // Affichez un message pour indiquer que le test a réussi
+        System.err.println("Test 5: Retrieve Method() \n la méthode Retrieve Equipe réussi pour l'équipe : " + expectedEquipe.getNomEquipe());
+    }
+
+
 
 
 }
