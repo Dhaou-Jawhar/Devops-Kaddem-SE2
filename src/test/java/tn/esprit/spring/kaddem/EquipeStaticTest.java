@@ -40,7 +40,7 @@ public class EquipeStaticTest {
         Equipe addEquipe = equipeService.addEquipe(equipeToAdd);
 
         assertEquals("BSB", addEquipe.getNomEquipe());
-        System.err.println("Test 1: \n One Line with NameEquipe = " + addEquipe.getNomEquipe() + " && Niveau Equipe = " + addEquipe.getNiveau() + " is added successfully");
+        System.err.println("Test 1: ADD Method\n One Line with NameEquipe = " + addEquipe.getNomEquipe() + " && Niveau Equipe = " + addEquipe.getNiveau() + " is added successfully");
     }
 
     @Test
@@ -57,7 +57,7 @@ public class EquipeStaticTest {
             existingEquipe.setNiveau(updatedEntity.getNiveau());
             return existingEquipe;
         });
-        System.err.println("Test 2: \n Befor Test Update = " + existingEquipe.getNomEquipe());
+        System.err.println("Test 2: Update Method \n Befor Test Update = " + existingEquipe.getNomEquipe());
         // Act
         // Change the name of the existingUniversity
         existingEquipe.setNomEquipe("Updated Equipe Name");
@@ -87,7 +87,7 @@ public class EquipeStaticTest {
 
         if (result.size() == 2) {
             log.info("Test Passed: Le nombre de résultats est de 2 comme prévu.");
-            System.err.println("Test 3 : \n Test réussi : Le nombre de résultats est de 2 comme prévu.");
+            System.err.println("Test 3: FetchAll Method() \n Test réussi : Le nombre de résultats est de 2 comme prévu.");
 
             // Afficher la liste des équipes dans la console
             for (Equipe equipe : result) {
@@ -95,7 +95,7 @@ public class EquipeStaticTest {
             }
         } else {
             log.info("Test échoué : Le nombre de résultats attendu était 2, mais on a obtenu " + result.size());
-            System.err.println("Test 3 : \n Test échoué : Le nombre de résultats attendu était 2, mais on a obtenu " + result.size());
+            System.err.println("Test 3: FetchAll Method() \n Test échoué : Le nombre de résultats attendu était 2, mais on a obtenu " + result.size());
         }
 
         assertEquals(2, result.size());
