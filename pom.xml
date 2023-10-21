@@ -91,7 +91,32 @@
                     <useFile>false</useFile> <!-- Configurez cette option pour ne pas générer de fichiers XML -->
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0</version> <!-- Assurez-vous d'utiliser une version compatible -->
+                <configuration>
+                    <altDeploymentRepository>Nexus Repository::default::http://192.168.33.10:8081/repository/maven-snapshots/</altDeploymentRepository>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version> <!-- Assurez-vous d'utiliser une version compatible -->
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>deploymentRepo</id>
+            <name>Nexus Repository</name>
+            <url>http://192.168.33.10:8081/repository/maven-snapshots/</url>
+        </repository>
+    </distributionManagement>
 
 </project>
