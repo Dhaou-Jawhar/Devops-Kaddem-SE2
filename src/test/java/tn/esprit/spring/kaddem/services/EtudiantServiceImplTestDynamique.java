@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.TestFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
 import tn.esprit.spring.kaddem.entities.Contrat;
 import tn.esprit.spring.kaddem.entities.Departement;
 import tn.esprit.spring.kaddem.entities.Equipe;
@@ -18,7 +17,10 @@ import tn.esprit.spring.kaddem.repositories.DepartementRepository;
 import tn.esprit.spring.kaddem.repositories.EquipeRepository;
 import tn.esprit.spring.kaddem.repositories.EtudiantRepository;
 
-import javax.transaction.Transactional;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -53,16 +55,34 @@ class EtudiantServiceImplTestDynamique {
 
     @BeforeEach
     public void setup() {
-        // Vous pouvez initialiser des données dans la base de données ici si nécessaire
+
     }
 
     @AfterEach
     public void cleanup() {
-//        // Vous pouvez nettoyer les données de la base de données ici si nécessaire
-//        departementRepository.deleteAll();
-//        etudiantRepository.deleteAll();
-//        equipeRepository.deleteAll();
+
+            // Définir les paramètres de connexion
+            String url = "jdbc:mysql://localhost:3306/kaddemdb";
+            String user = "root";
+           // String password = "your_password";
+
+            try {
+                // Établir une connexion à la base de données
+                Connection connection = DriverManager.getConnection(url, user, "");
+
+                // Créer un objet Statement
+                Statement statement = connection.createStatement();
+
+                // Exécuter une requête SQL pour supprimer toutes les tables
+                statement.executeUpdate("DROP DATABASE kaddemdb");
+
+                // Fermer la connexion
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
     }
+
 
     @TestFactory
     Stream<DynamicTest> dynamicTests() {
@@ -216,12 +236,6 @@ class EtudiantServiceImplTestDynamique {
 
     private void assignEtudiantToDepartement(int etudiantId, int departementId) {
         etudiantService.assignEtudiantToDepartement(etudiantId, departementId);
-    }
-
-    private Optional<Departement> retrieveDepartement(int id) {
-        departementService.retrieveDepartement(id);
-        return Optional.empty(); // C'est factice, vous devrez le remplacer par une vraie implémentation
-
     }
 
 
