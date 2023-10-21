@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+src/test/java/tn/esprit/spring/kaddem/services/UniversiteDynamicTest.java
+docker-compose.yml
