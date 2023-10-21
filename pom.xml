@@ -82,7 +82,16 @@
                 </execution>
             </executions>
         </plugin>
-
+            <!--Plugin surefire-reports-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0</version> <!-- Assurez-vous d'utiliser une version compatible -->
+                <configuration>
+                    <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                    <useFile>false</useFile> <!-- Configurez cette option pour ne pas générer de fichiers XML -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
