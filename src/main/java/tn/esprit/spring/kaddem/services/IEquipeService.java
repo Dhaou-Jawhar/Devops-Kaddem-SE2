@@ -10,5 +10,6 @@ public interface IEquipeService {
     public  void deleteEquipe(Integer idEquipe);
     public Equipe updateEquipe(Equipe e, Integer idEquipe);
     public Equipe retrieveEquipe(Integer equipeId);
+    public void assignEquipeToDetailEquipe(Integer idEquipe, Integer idDetailEquipe);
     public void evoluerEquipes();
 }

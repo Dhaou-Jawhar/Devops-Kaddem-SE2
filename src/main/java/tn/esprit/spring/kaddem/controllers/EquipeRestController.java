@@ -53,6 +53,12 @@ public class EquipeRestController {
 	public void faireEvoluerEquipes() {
 		 equipeService.evoluerEquipes() ;
 	}
+
+	// http://localhost:8089/kaddem/equipe/assignEquipeToDetailEquipe/1/1
+	@PostMapping("/assignEquipeToDetailEquipe/{idEquipe}/{idDetailEquipe}")
+	public void assignEquipeToDetailEquipe(@PathVariable ("idEquipe")Integer idEquipe, @PathVariable("idDetailEquipe") Integer idDetailEquipe) {
+		equipeService.assignEquipeToDetailEquipe(idEquipe, idDetailEquipe);
+	}
 }
 
 

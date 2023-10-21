@@ -1,14 +1,9 @@
 package tn.esprit.spring.kaddem.services;
 
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import lombok.extern.slf4j.Slf4j;
-import tn.esprit.spring.kaddem.entities.Contrat;
-import tn.esprit.spring.kaddem.entities.Equipe;
-import tn.esprit.spring.kaddem.entities.Etudiant;
-import tn.esprit.spring.kaddem.entities.Niveau;
+import tn.esprit.spring.kaddem.entities.*;
+import tn.esprit.spring.kaddem.repositories.DetailEquipeRepository;
 import tn.esprit.spring.kaddem.repositories.EquipeRepository;
 
 import java.util.Date;
@@ -20,6 +15,9 @@ import java.util.Set;
 public class EquipeServiceImpl implements IEquipeService {
 	@Autowired
     EquipeRepository equipeRepository;
+
+    @Autowired
+    DetailEquipeRepository detailEquipeRepository;
 
 
     public List<Equipe> retrieveAllEquipes() {
@@ -37,6 +35,16 @@ public class EquipeServiceImpl implements IEquipeService {
 
     public Equipe retrieveEquipe(Integer equipeId) {
         return equipeRepository.findById(equipeId).get();
+    }
+
+    @Override
+    public void assignEquipeToDetailEquipe(Integer idEquipe, Integer idDetailEquipe) {
+        Equipe e = equipeRepository.findById(idEquipe).get();
+        DetailEquipe detailEquipe = detailEquipeRepository.findById(idDetailEquipe).get();
+
+        e.setDetailEquipe(detailEquipe);
+        equipeRepository.save(e);
+
     }
 
     public Equipe updateEquipe(Equipe e, Integer idEquipe) {
