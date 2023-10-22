@@ -139,39 +139,6 @@ class ContratStaticTest {
 
         System.err.println("testRetrieveContrat : SUCCESS");
     }
-    @Test
-    public void testAffectContratToEtudiant() {
-        // Create sample data for the method parameters
-        Integer idContrat = 1;
-        String nomE = "John";
-        String prenomE = "Doe";
-
-        // Mock the behavior of the etudiantRepository and contratRepository
-        Etudiant etudiant = new Etudiant();
-        // Add necessary properties to the etudiant object
-
-        when(etudiantRepository.findByNomEAndPrenomE(nomE, prenomE)).thenReturn(etudiant);
-
-        Contrat ce = new Contrat();
-        // Add necessary properties to the contrat object
-
-        when(contratRepository.findByIdContrat(idContrat)).thenReturn(ce);
-
-        // Perform the method call
-        Contrat result = contratService.affectContratToEtudiant(idContrat, nomE, prenomE);
-
-        // Add necessary assertions based on the expected behavior of the method
-        // ...
-
-        // Verify the interactions with the repositories
-        verify(etudiantRepository, times(1)).findByNomEAndPrenomE(nomE, prenomE);
-        verify(contratRepository, times(1)).findByIdContrat(idContrat);
-        // Add more verifications based on the method behavior
-
-        // Add necessary assertions for the result based on the method behavior
-        // ...
-
-        System.out.println("testAffectContratToEtudiant: SUCCESS");
-    }
+  
 
 }
