@@ -23,7 +23,7 @@ import static org.mockito.Mockito.*;
 
 @Slf4j
 @RunWith(MockitoJUnitRunner.class)
-class EtudiantServiceImplTestStatique {
+class TestStatiqueEtudiantServiceImpl {
     @InjectMocks
     private EtudiantServiceImpl etudiantService;
 

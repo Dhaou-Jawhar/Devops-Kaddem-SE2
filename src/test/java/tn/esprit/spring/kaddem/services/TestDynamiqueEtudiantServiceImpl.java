@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.TestFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.spring.kaddem.entities.Contrat;
 import tn.esprit.spring.kaddem.entities.Departement;
@@ -27,8 +28,9 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 @SpringBootTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 
-class EtudiantServiceImplTestDynamique {
+class TestDynamiqueEtudiantServiceImpl {
     @Autowired
     private EtudiantServiceImpl etudiantService;
 
@@ -50,38 +52,35 @@ class EtudiantServiceImplTestDynamique {
     @Autowired
     private EquipeRepository equipeRepository;
 
-    @Autowired
-    private DepartementRepository departementRepository;
-
     @BeforeEach
     public void setup() {
 
     }
 
-    @AfterEach
-    public void cleanup() {
-
-            // Définir les paramètres de connexion
-            String url = "jdbc:mysql://localhost:3306/kaddemdb";
-            String user = "root";
-           // String password = "your_password";
-
-            try {
-                // Établir une connexion à la base de données
-                Connection connection = DriverManager.getConnection(url, user, "");
-
-                // Créer un objet Statement
-                Statement statement = connection.createStatement();
-
-                // Exécuter une requête SQL pour supprimer toutes les tables
-                statement.executeUpdate("DROP DATABASE kaddemdb");
-
-                // Fermer la connexion
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-    }
+//    @AfterEach
+//    public void cleanup() {
+//
+//            // Définir les paramètres de connexion
+//            String url = "jdbc:mysql://localhost:3306/kaddemdb";
+//            String user = "root";
+//           // String password = "your_password";
+//
+//            try {
+//                // Établir une connexion à la base de données
+//                Connection connection = DriverManager.getConnection(url, user, "");
+//
+//                // Créer un objet Statement
+//                Statement statement = connection.createStatement();
+//
+//                // Exécuter une requête SQL pour supprimer toutes les tables
+//                statement.executeUpdate("DROP DATABASE kaddemdb");
+//
+//                // Fermer la connexion
+//                connection.close();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//    }
 
 
     @TestFactory
