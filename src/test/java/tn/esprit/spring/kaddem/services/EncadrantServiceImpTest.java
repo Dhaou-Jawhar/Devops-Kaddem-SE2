@@ -30,7 +30,7 @@ class EncadrantServiceImpTest {
 
 
     @Test
-    public void testAddEncadrant() {
+     void testAddEncadrant() {
         // Arrange
         Encadrant encadrant = new Encadrant();
         encadrant.setNomEncadrant("Eya");
@@ -47,7 +47,7 @@ class EncadrantServiceImpTest {
         System.out.println(result.getNomEncadrant()+" ajouté");
     }
     @Test
-    public void testUpdateEncadrant() {
+     void testUpdateEncadrant() {
         // Créer un objet Encadrant simulé
         Encadrant encadrantSimule = new Encadrant(1, "Nom1", "Prenom1", new Date(), new HashSet<>());
 
@@ -64,7 +64,7 @@ class EncadrantServiceImpTest {
         assertEquals(encadrantSimule, resultat);
     }
     @Test
-    public void testDeleteEncadrant() {
+     void testDeleteEncadrant() {
         // ID simulé pour le test
         Integer idEncadrantSimule = 1;
 
@@ -75,7 +75,7 @@ class EncadrantServiceImpTest {
         verify(encadrantRepository, times(1)).deleteById(idEncadrantSimule);
     }
     @Test
-    public void testGetEncadrantById() {
+     void testGetEncadrantById() {
         // ID simulé pour le test
         Integer idEncadrantSimule = 1;
 
