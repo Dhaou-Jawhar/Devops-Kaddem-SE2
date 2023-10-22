@@ -93,5 +93,9 @@ public class Equipe implements Serializable{
     public void setNiveau(Niveau niveau) {
         this.niveau = niveau;
     }
+    @ManyToOne
+    Encadrant encadrant;
 
+    public void setEncadrant(Encadrant en) {
+    }
 }
