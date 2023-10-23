@@ -1,8 +1,8 @@
 # Utilisez une image de base avec Java
-FROM openjdk:11-jre-slim
+FROM  openjdk:12-alpine
 
 # Copiez le jar de l'application dans l'image
-COPY target/nom-de-votre-application.jar /app.jar
+COPY  target/Devops-Kaddem-SE2.jar /app.jar
 
 # Définissez le port sur lequel l'application va écouter
 EXPOSE 8080
