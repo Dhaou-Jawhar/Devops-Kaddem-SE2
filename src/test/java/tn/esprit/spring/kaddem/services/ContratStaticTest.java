@@ -139,6 +139,6 @@ class ContratStaticTest {
 
         System.err.println("testRetrieveContrat : SUCCESS");
     }
-  
+
 
 }
