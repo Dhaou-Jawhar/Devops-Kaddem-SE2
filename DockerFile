@@ -2,7 +2,7 @@
 FROM  openjdk:12-alpine
 
 # Copiez le jar de l'application dans l'image
-COPY  target/Devops-Kaddem-SE2.jar /app.jar
+COPY  target/kaddem-0.0.1-SNAPSHOT.jar /app.jar
 
 # Définissez le port sur lequel l'application va écouter
 EXPOSE 8080
