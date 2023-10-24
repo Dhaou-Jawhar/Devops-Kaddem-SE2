@@ -5,5 +5,5 @@ services:
     image: hanen/alpine
     build: .
     ports:
-      - 8000-8999:8089
+      - 8080:8080
 
