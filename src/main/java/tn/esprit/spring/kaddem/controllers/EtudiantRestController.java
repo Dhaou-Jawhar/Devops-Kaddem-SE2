@@ -10,6 +10,7 @@ import tn.esprit.spring.kaddem.services.IEtudiantService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
 @RequestMapping("/etudiant")
 @Tag(name = "Etudiant 👨‍🎓 Management")
