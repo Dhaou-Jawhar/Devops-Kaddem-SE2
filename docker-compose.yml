@@ -5,5 +5,10 @@ services:
     image: hanen/alpine
     build: .
     ports:
-      - 8080:8080
+      - 8000-8999:8089
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
 
