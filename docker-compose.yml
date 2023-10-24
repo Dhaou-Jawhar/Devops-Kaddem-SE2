@@ -1,0 +1,9 @@
+version: 3
+services:
+  springboot-app:
+    #container_name: spring-app
+    image: hanen/alpine
+    build: .
+    ports:
+      - 8000-8999:8089
+
