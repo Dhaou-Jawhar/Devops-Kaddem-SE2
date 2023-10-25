@@ -1,8 +1,8 @@
 version: "3"
 services:
   springboot-app:
-    #container_name: spring-app
-    image: hanen/alpine
+    container_name: kaddem-app
+    image: hanenhammouda/alpine:2.1-SPRING-COMPOSE
     restart: always
     build: .
     ports:
