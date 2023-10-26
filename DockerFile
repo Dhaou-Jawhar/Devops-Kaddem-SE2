@@ -1,6 +1,5 @@
-FROM openjdk:11-jdk-slim
-EXPOSE 8080
-ADD target/devops-integration.jar devops-integration.jar
-CMD ["java", "-jar", "devops-integration.jar"]
+FROM openjdk:11-alpine
+ADD target/kaddem-* /kaddem.jar
+CMD ["java", "-jar", "/kaddem.jar"]
 
 
