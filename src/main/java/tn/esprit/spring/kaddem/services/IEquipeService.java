@@ -1,6 +1,6 @@
-package tn.esprit.spring.kaddem.services.services;
+package tn.esprit.spring.kaddem.services;
 
-import tn.esprit.spring.kaddem.services.entities.Equipe;
+import tn.esprit.spring.kaddem.entities.Equipe;
 
 import java.util.List;
 

@@ -1,11 +1,11 @@
-package tn.esprit.spring.kaddem.services.controllers;
+package tn.esprit.spring.kaddem.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.spring.kaddem.services.entities.Departement;
-import tn.esprit.spring.kaddem.services.entities.Universite;
-import tn.esprit.spring.kaddem.services.services.IUniversiteService;
+import tn.esprit.spring.kaddem.entities.Departement;
+import tn.esprit.spring.kaddem.entities.Universite;
+import tn.esprit.spring.kaddem.services.IUniversiteService;
 
 import java.util.List;
 import java.util.Set;

@@ -1,11 +1,11 @@
-package tn.esprit.spring.kaddem.services.controllers;
+package tn.esprit.spring.kaddem.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.spring.kaddem.services.entities.Equipe;
-import tn.esprit.spring.kaddem.services.services.IEquipeService;
+import tn.esprit.spring.kaddem.entities.Equipe;
+import tn.esprit.spring.kaddem.services.IEquipeService;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/equipe")
 public class EquipeRestController {
 	@Autowired
-    IEquipeService equipeService;
+	IEquipeService equipeService;
 
 	// http://localhost:8089/kaddem/equipe/retrieve-all-equipes
 	@GetMapping("/retrieve-all-equipes")

@@ -1,7 +1,7 @@
-package tn.esprit.spring.kaddem.services.repositories;
+package tn.esprit.spring.kaddem.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import tn.esprit.spring.kaddem.services.entities.DetailEquipe;
+import tn.esprit.spring.kaddem.entities.DetailEquipe;
 
 public interface DetailEquipeRepository extends CrudRepository<DetailEquipe, Integer> {
 }

@@ -1,4 +1,4 @@
-package tn.esprit.spring.kaddem.services.entities;
+package tn.esprit.spring.kaddem.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -28,7 +28,7 @@ public class Equipe implements Serializable{
     @JsonIgnore
     @ManyToMany(cascade =CascadeType.ALL)
     private Set<Etudiant> etudiants;
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "detail_equipe_id_detail_equipe")
     private DetailEquipe detailEquipe;
 

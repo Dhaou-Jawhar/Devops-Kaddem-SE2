@@ -1,11 +1,10 @@
-package tn.esprit.spring.kaddem.services.services;
+package tn.esprit.spring.kaddem.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.spring.kaddem.entities.*;
-import tn.esprit.spring.kaddem.services.entities.*;
-import tn.esprit.spring.kaddem.services.repositories.DetailEquipeRepository;
-import tn.esprit.spring.kaddem.services.repositories.EquipeRepository;
+import tn.esprit.spring.kaddem.repositories.DetailEquipeRepository;
+import tn.esprit.spring.kaddem.repositories.EquipeRepository;
 
 import java.util.Date;
 import java.util.List;

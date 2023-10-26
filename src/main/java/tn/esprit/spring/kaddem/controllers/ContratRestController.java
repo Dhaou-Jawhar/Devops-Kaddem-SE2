@@ -1,11 +1,11 @@
-package tn.esprit.spring.kaddem.services.controllers;
+package tn.esprit.spring.kaddem.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.spring.kaddem.services.entities.Contrat;
-import tn.esprit.spring.kaddem.services.services.IContratService;
+import tn.esprit.spring.kaddem.entities.Contrat;
+import tn.esprit.spring.kaddem.services.IContratService;
 
 import java.util.Date;
 import java.util.List;

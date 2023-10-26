@@ -1,7 +1,7 @@
-package tn.esprit.spring.kaddem.services.services;
+package tn.esprit.spring.kaddem.services;
 
-import tn.esprit.spring.kaddem.services.entities.Departement;
-import tn.esprit.spring.kaddem.services.entities.Universite;
+import tn.esprit.spring.kaddem.entities.Departement;
+import tn.esprit.spring.kaddem.entities.Universite;
 
 import java.util.List;
 import java.util.Set;

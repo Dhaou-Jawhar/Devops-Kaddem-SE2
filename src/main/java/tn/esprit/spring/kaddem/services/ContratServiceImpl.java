@@ -1,14 +1,14 @@
-package tn.esprit.spring.kaddem.services.services;
+package tn.esprit.spring.kaddem.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
-import tn.esprit.spring.kaddem.services.entities.Contrat;
-import tn.esprit.spring.kaddem.services.repositories.EtudiantRepository;
-import tn.esprit.spring.kaddem.services.entities.Etudiant;
-import tn.esprit.spring.kaddem.services.entities.Specialite;
-import tn.esprit.spring.kaddem.services.repositories.ContratRepository;
+import tn.esprit.spring.kaddem.entities.Contrat;
+import tn.esprit.spring.kaddem.repositories.EtudiantRepository;
+import tn.esprit.spring.kaddem.entities.Etudiant;
+import tn.esprit.spring.kaddem.entities.Specialite;
+import tn.esprit.spring.kaddem.repositories.ContratRepository;
 
 import java.util.Date;
 import java.util.List;

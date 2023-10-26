@@ -1,4 +1,4 @@
-package tn.esprit.spring.kaddem.services.entities;
+package tn.esprit.spring.kaddem.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
