@@ -8,11 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 import tn.esprit.spring.kaddem.services.entities.Contrat;
 import tn.esprit.spring.kaddem.services.entities.Departement;
 import tn.esprit.spring.kaddem.services.entities.Equipe;
-import tn.esprit.spring.kaddem.services.entities.Etudiant;
 import tn.esprit.spring.kaddem.services.repositories.ContratRepository;
 import tn.esprit.spring.kaddem.services.repositories.DepartementRepository;
 import tn.esprit.spring.kaddem.services.repositories.EquipeRepository;
 import tn.esprit.spring.kaddem.services.repositories.EtudiantRepository;
+import tn.esprit.spring.kaddem.services.entities.Etudiant;
 
 import javax.transaction.Transactional;
 import java.util.List;

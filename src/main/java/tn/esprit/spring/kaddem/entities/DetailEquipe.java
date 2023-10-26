@@ -23,6 +23,7 @@ public class DetailEquipe implements Serializable{
         this.thematique = thematique;
     }
 
+
     public DetailEquipe(Integer idDetailEquipe, Integer salle, String thematique) {
         super();
         this.idDetailEquipe = idDetailEquipe;

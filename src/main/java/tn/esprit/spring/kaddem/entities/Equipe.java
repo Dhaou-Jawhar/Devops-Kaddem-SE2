@@ -28,8 +28,8 @@ public class Equipe implements Serializable{
     @JsonIgnore
     @ManyToMany(cascade =CascadeType.ALL)
     private Set<Etudiant> etudiants;
-    @JsonIgnore
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "detail_equipe_id_detail_equipe")
     private DetailEquipe detailEquipe;
 
     public Equipe(String nomEquipe) {
@@ -48,5 +48,9 @@ public class Equipe implements Serializable{
         this.niveau = niveau;
     }
 
-
+    public Equipe(Integer idEquipe, String nomEquipe, Niveau niveau) {
+        this.idEquipe = idEquipe;
+        this.nomEquipe = nomEquipe;
+        this.niveau = niveau;
+    }
 }

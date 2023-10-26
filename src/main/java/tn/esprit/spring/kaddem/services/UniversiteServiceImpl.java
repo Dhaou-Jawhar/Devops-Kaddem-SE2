@@ -3,9 +3,9 @@ package tn.esprit.spring.kaddem.services.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.spring.kaddem.services.entities.Departement;
-import tn.esprit.spring.kaddem.services.entities.Universite;
 import tn.esprit.spring.kaddem.services.repositories.DepartementRepository;
 import tn.esprit.spring.kaddem.services.repositories.UniversiteRepository;
+import tn.esprit.spring.kaddem.services.entities.Universite;
 
 import java.util.List;
 import java.util.Set;

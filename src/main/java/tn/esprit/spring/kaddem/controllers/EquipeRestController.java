@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/equipe")
 public class EquipeRestController {
 	@Autowired
-	IEquipeService equipeService;
+    IEquipeService equipeService;
 
 	// http://localhost:8089/kaddem/equipe/retrieve-all-equipes
 	@GetMapping("/retrieve-all-equipes")

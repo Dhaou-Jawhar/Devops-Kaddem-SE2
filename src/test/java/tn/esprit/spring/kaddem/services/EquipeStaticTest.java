@@ -1,4 +1,4 @@
-package tn.esprit.spring.kaddem.services;
+package tn.esprit.spring.kaddem;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import tn.esprit.spring.kaddem.services.entities.DetailEquipe;
-import tn.esprit.spring.kaddem.services.entities.Equipe;
-import tn.esprit.spring.kaddem.services.entities.Niveau;
-import tn.esprit.spring.kaddem.services.repositories.DetailEquipeRepository;
-import tn.esprit.spring.kaddem.services.repositories.EquipeRepository;
-import tn.esprit.spring.kaddem.services.services.EquipeServiceImpl;
+import tn.esprit.spring.kaddem.entities.DetailEquipe;
+import tn.esprit.spring.kaddem.entities.Equipe;
+import tn.esprit.spring.kaddem.services.EquipeServiceImpl;
+import tn.esprit.spring.kaddem.repositories.DetailEquipeRepository;
+import tn.esprit.spring.kaddem.entities.Niveau;
+import tn.esprit.spring.kaddem.repositories.EquipeRepository;
 
 import java.util.ArrayList;
 import java.util.List;

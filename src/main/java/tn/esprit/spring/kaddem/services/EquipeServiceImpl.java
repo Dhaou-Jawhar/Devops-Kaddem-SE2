@@ -2,6 +2,7 @@ package tn.esprit.spring.kaddem.services.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.esprit.spring.kaddem.entities.*;
 import tn.esprit.spring.kaddem.services.entities.*;
 import tn.esprit.spring.kaddem.services.repositories.DetailEquipeRepository;
 import tn.esprit.spring.kaddem.services.repositories.EquipeRepository;

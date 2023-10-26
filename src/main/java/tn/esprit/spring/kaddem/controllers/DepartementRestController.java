@@ -2,8 +2,8 @@ package tn.esprit.spring.kaddem.services.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.spring.kaddem.services.entities.Departement;
 import tn.esprit.spring.kaddem.services.services.IDepartementService;
+import tn.esprit.spring.kaddem.services.entities.Departement;
 
 import java.util.List;
 

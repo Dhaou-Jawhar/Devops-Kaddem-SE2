@@ -3,8 +3,8 @@ package tn.esprit.spring.kaddem.services.controllers;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.spring.kaddem.services.entities.Etudiant;
 import tn.esprit.spring.kaddem.services.services.IEtudiantService;
+import tn.esprit.spring.kaddem.services.entities.Etudiant;
 
 import java.util.List;
 
