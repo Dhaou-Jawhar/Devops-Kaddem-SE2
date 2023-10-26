@@ -1,9 +1,6 @@
-FROM openjdk:11-jdk-alpine
-ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
-JAVA_OPTS=""
-WORKDIR /app
-ADD target/*.jar app.jar
+FROM openjdk:11-jdk-slim
 EXPOSE 8080
-CMD ["java", "-jar", "/app/app.jar"]
+ADD target/devops-integration.jar devops-integration.jar
+CMD ["java", "-jar", "devops-integration.jar"]
 
 
