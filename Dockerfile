@@ -2,10 +2,10 @@
 FROM openjdk:11-jre-slim
 
 # Copiez le jar de l'application dans l'image
-COPY  target/kaddem-0.0.1-SNAPSHOT.jar /app.jar
+COPY  target/kaddem-0.0.1-SNAPSHOT.jar /eyatizaoui
 
 # Définissez le port sur lequel l'application va écouter
 
 
 # Commande pour exécuter l'application lors du démarrage du conteneur
-CMD ["java", "-jar", "/app.jar"]
+CMD ["java", "-jar", "/eyatizaoui"]
