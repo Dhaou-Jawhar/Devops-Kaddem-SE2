@@ -32,9 +32,9 @@ class ContratDynamiqueTest {
     void retrieveAllContrat() {
         List<Contrat> contrats = contratService.retrieveAllContrats();
         assertFalse(contrats.isEmpty());
-        System.out.println("Liste des départements dans la table de département :");
-        for (Contrat departement : contrats) {
-            System.err.println("ID : " + departement.getIdContrat() + ", Montant : " + departement.getMontantContrat());
+        System.out.println("Liste des contrat :");
+        for (Contrat c : contrats) {
+            System.err.println("ID : " + c.getIdContrat() + ", Montant : " + c.getMontantContrat());
         }
     }
 
@@ -62,10 +62,10 @@ class ContratDynamiqueTest {
         Contrat savedContrat = contratRepository.save(contrattrue);
         Integer updatedMontant = 77;
         savedContrat.setMontantContrat(updatedMontant);
-        Contrat updatedDepartement = contratService.updateContrat(savedContrat);
-        Contrat retrievedDepartement = contratRepository.findById(updatedDepartement.getIdContrat()).orElse(null);
-        assertNotNull(retrievedDepartement);
-        assertEquals(updatedMontant, retrievedDepartement.getMontantContrat());
+        Contrat updatedContrat = contratService.updateContrat(savedContrat);
+        Contrat retrievedContrat = contratRepository.findById(updatedContrat.getIdContrat()).orElse(null);
+        assertNotNull(retrievedContrat);
+        assertEquals(updatedMontant, retrievedContrat.getMontantContrat());
         System.err.println("Update Contrat : OK !");
     }
 
