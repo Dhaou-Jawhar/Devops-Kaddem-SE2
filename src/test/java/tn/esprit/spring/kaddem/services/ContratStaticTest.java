@@ -139,6 +139,17 @@ class ContratStaticTest {
 
         System.err.println("testRetrieveContrat : SUCCESS");
     }
+    @Test
+    void testDeleteContrat() {
+        Contrat contrat = new Contrat();
+        contrat.setIdContrat(1);
 
+        when(contratRepository.save(contrat)).thenReturn(contrat);
+        contratService.removeContrat(contrat.getIdContrat());
+        List<Contrat> result = contratService.retrieveAllContrats();
+        assertEquals(0, result.size());
+
+        System.err.println("DeleteContratTest : Ok");
+    }
 
 }
