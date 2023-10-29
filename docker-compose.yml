@@ -1,33 +1,31 @@
 version: "3"
 
 services:
-  mysqldb:
-    container_name: mysqldb
-    image: mysql
-    restart: unless-stopped
-    environment:
-      - MYSQL_DATABASE=achatdb
-      - MYSQL_ALLOW_EMPTY_PASSWORD= yes
-    ports:
-      - "3306:3306"
-    volumes:
-      - db:/var/lib/mysql
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  springboot-app:
+    container_name: Kaddem-app
     image: jediditasnim/alpine:0.1-SPRING-DockerCompose
-    container_name: Kaddem
     restart: always
+    build: .
     ports:
-      - "8089:8089"
+        - 8000-8999:8089
     environment:
       MYSQL_HOST: mysqldb
       MYSQL_USER: root
-      MYSQL_PASSWORD:
+      MYSQL_PASSWORD: root
       MYSQL_PORT: 3306
 
-volumes:
-    db:
+  mysqldb:
+    container_name: mysqldb
+    image: mysql
+    volumes:
+      - /home/Users/User/Desktop/DEVOPS/Projet/db:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_DATABASE= test
+      - MYSQL_ALLOW_EMPTY_PASSWORD= root
+
+
+
 
 
