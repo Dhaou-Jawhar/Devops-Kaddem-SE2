@@ -16,7 +16,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: jediditasnim/alpine
+    image: jediditasnim/alpine:0.1-SPRING-DockerCompose
     container_name: Kaddem
     restart: always
     ports:
@@ -24,10 +24,8 @@ services:
     environment:
       MYSQL_HOST: mysqldb
       MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_PASSWORD:
       MYSQL_PORT: 3306
-
-
 
 volumes:
     db:
