@@ -2,8 +2,8 @@ version: "3"
 
 services:
   springboot-app:
-    container_name: Kaddem-app
-    image: jediditasnim/alpine:0.1-SPRING-DockerCompose
+   # container_name: Kaddem-app
+    image: jediditasnim/alpine:0.1-SPRING-Compose
     restart: always
     build: .
     ports:
@@ -18,12 +18,12 @@ services:
     container_name: mysqldb
     image: mysql
     volumes:
-      - /home/Users/User/Desktop/DEVOPS/Projet/db:/var/lib/mysql
+      - /home/User/DESKTOP/db:/var/lib/mysql
     ports:
-      - "3307:3306"
+      - 3307:3306
     environment:
-      - MYSQL_DATABASE= test
-      - MYSQL_ALLOW_EMPTY_PASSWORD= root
+       MYSQL_DATABASE: test
+       MYSQL_ROOT_PASSWORD: root
 
 
 
