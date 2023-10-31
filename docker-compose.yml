@@ -1,15 +1,24 @@
-version: '3'
+version: "3"
 services:
-  app:
+  springboot-app:
+    # container_name: spring-app
     image: hazem0419/alpine:0.0.1-SPRING
+    restart: always
+    build: .
     ports:
-      - "8089:8089"
-    depends_on:
-      - mysql
+      - 8066:8089
     environment:
-      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/kaddem?useSSL=false"
-      SPRING_DATASOURCE_USERNAME: "root"
-      SPRING_JPA_HIBERNATE_DDL_AUTO: "update"
-      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: "org.hibernate.dialect.MySQL5Dialect"
-  mysql:
-    image: mysql:5.7
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+  mysqldb:
+    container_name: mysqldb
+    image: mysql
+    volumes:
+      -  /home/Kaddem/DevopsProject/db:/var/lib/mysql
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: kaddemdb
+      MYSQL_ROOT_PASSWORD: root
