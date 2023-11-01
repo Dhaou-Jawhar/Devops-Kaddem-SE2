@@ -10,7 +10,7 @@ services:
     environment:
       MYSQL_HOST: mysqldb
       MYSQL_USER: root
-      MYSQL_PASSWORD:  # Laissez ce champ vide
+      MYSQL_PASSWORD:
       MYSQL_PORT: 3306
   mysqldb:
     container_name: mysqldb
