@@ -64,7 +64,8 @@ public class EquipeStaticTest {
             existingEquipe.setNiveau(updatedEntity.getNiveau());
             return existingEquipe;
         });
-        System.out.println("\n***********************************************  Test 3: [ Method: UpdateEquipe() ] *****************************************************************\n--> Test Passed: Test de modfication bien réussi\n- Befor Test Update = " + existingEquipe.getNomEquipe());
+        System.out.println("\n***********************************************  Test 3: [ Method: UpdateEquipe() ] *****************************************************************\n--> Test Passed: Test de modfication bien réussi\n- Befor Test Update = "
+                + existingEquipe.getNomEquipe());
 
         // Act
         // Change the name of the existingEquipe
