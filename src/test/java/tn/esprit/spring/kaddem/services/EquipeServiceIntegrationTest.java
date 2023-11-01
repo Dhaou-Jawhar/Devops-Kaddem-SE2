@@ -32,7 +32,8 @@ public class EquipeServiceIntegrationTest {
 
     @Autowired
     private DetailEquipeRepository detailEquipeRepository;
-/*
+
+    /*
     @BeforeEach
     public void setUp() {
         // Assurez-vous que la base de données est vide au début de chaque test
