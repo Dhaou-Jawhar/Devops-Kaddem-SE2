@@ -11,8 +11,7 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_PORT: 3306
-    volumes:
-      - /var/lib/jenkins/workspace/MonProjetDevops/target/kaddem-0.0.1-SNAPSHOT.jar:/app/app.jar  # Correction du chemin de volume
+
   mysqldb:
     container_name: mysqldb
     image: mysql
@@ -21,5 +20,5 @@ services:
     ports:
       - 3307:3306
     environment:
-      MYSQL_DATABASE: kaddemdb
+      MYSQL_DATABASE: kaddem
       MYSQL_ROOT_PASSWORD: root
