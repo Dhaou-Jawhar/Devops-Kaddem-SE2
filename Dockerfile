@@ -1,5 +1,5 @@
 # Utilisez une image de base avec Java
-FROM openjdk:11-jre-slim
+FROM openjdk:11-alpine
 
 # Copiez le jar de l'application dans l'image
 COPY  target/kaddem-0.0.1-SNAPSHOT.jar /eyatizaoui
