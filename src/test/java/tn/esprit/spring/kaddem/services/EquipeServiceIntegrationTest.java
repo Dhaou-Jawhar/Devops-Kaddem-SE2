@@ -33,18 +33,18 @@ public class EquipeServiceIntegrationTest {
     @Autowired
     private DetailEquipeRepository detailEquipeRepository;
 
-    /*
+
     @BeforeEach
     public void setUp() {
         // Assurez-vous que la base de données est vide au début de chaque test
         equipeRepository.deleteAll();
     }
 
-    @AfterEach
-    public void tearDown() {
-        // Effacez la base de données après chaque test
-        equipeRepository.deleteAll();
-    }
+//    @AfterEach
+//    public void tearDown() {
+//        // Effacez la base de données après chaque test
+//        equipeRepository.deleteAll();
+//    }
 
     @Test
     public void testAddEquipeAndDetailEquipeWithAssign() {
@@ -102,23 +102,24 @@ public class EquipeServiceIntegrationTest {
 
     // Ajoutez d'autres tests pour les autres méthodes de service
 
+//    @Test
+//    public void testDeleteEquipe() {
+//        // Créez une équipe et ajoutez-la à la base de données
+//        Equipe equipe = new Equipe(1,"EquipeTest", Niveau.JUNIOR);
+//        equipeRepository.save(equipe); // Ajoutez l'équipe à la base de données
+//
+//        // Vérifiez que l'équipe a été ajoutée avec succès
+//        assertNotNull(equipeService.retrieveEquipe(equipe.getIdEquipe()));
+//
+//        // Appelez la méthode de service pour supprimer l'équipe
+//        equipeService.deleteEquipe(equipe.getIdEquipe());
+//
+//        // Vérifiez que l'équipe a été supprimée de la base de données
+//        assertNull(equipeService.retrieveEquipe(equipe.getIdEquipe()));
+//    }
+
+
     @Test
-    public void testDeleteEquipe() {
-        // Créez une équipe et ajoutez-la à la base de données
-        Equipe equipe = new Equipe(1,"EquipeTest", Niveau.JUNIOR);
-        equipeService.addEquipe(equipe);
-
-        // Vérifiez que l'équipe a été ajoutée avec succès
-        assertNotNull(equipeService.retrieveEquipe(equipe.getIdEquipe()));
-
-        // Appelez la méthode de service pour supprimer l'équipe
-        equipeService.deleteEquipe(equipe.getIdEquipe());
-
-        // Vérifiez que l'équipe a été supprimée de la base de données
-        assertNull(equipeService.retrieveEquipe(equipe.getIdEquipe()));
-    }
-
-   @Test
     public void testUpdateEquipe() {
         // Créez une équipe et ajoutez-la à la base de données
         Equipe equipe = new Equipe("EquipeTest", Niveau.JUNIOR);
@@ -136,5 +137,5 @@ public class EquipeServiceIntegrationTest {
         assertEquals(equipe.getIdEquipe(), updatedEquipe.getIdEquipe());
         assertEquals("NouveauNom", updatedEquipe.getNomEquipe());
         assertEquals(Niveau.SENIOR, updatedEquipe.getNiveau());
-    }*/
+    }
 }
