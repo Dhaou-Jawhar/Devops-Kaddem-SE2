@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping("/equipe")
 public class EquipeRestController {
 	IEquipeService equipeService;
+
 	// http://localhost:8089/Kaddem/equipe/retrieve-all-equipes
 	@GetMapping("/retrieve-all-equipes")
 	public List<Equipe> getEquipes() {
