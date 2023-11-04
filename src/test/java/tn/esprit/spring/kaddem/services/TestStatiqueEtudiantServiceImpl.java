@@ -24,6 +24,7 @@ import static org.mockito.Mockito.*;
 @Slf4j
 @RunWith(MockitoJUnitRunner.class)
 class TestStatiqueEtudiantServiceImpl {
+//    chbvddy
     @InjectMocks
     private EtudiantServiceImpl etudiantService;
 
