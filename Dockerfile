@@ -1,6 +1,5 @@
-FROM openjdk:12-alpine
-
-#ADD http://192.168.18.129:8081/repository/maven-snapshots/ /kaddem.jar
+#FROM openjdk:12-alpine
+FROM kaddem_back-end:2.0.0
 COPY target/kaddem-*.jar /kaddem.jar
 
 CMD ["java" , "-jar", "/kaddem.jar"]
