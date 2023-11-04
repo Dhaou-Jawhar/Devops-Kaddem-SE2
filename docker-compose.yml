@@ -2,11 +2,11 @@ version: "3"
 services:
   springboot-app:
     # container_name: spring-app
-    image: dhaoujawhar/alpine:2.2-SPRING
+    image: dhaoujawhar/alpine:3.0-SPRING
     restart: always
     build: .
     ports:
-      - 8000-8999:8089
+      - 8066:8089
     environment:
       MYSQL_HOST: mysqldb
       MYSQL_USER: root

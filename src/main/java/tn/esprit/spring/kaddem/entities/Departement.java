@@ -13,6 +13,7 @@ public class Departement implements Serializable{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer idDepart;
     private String nomDepart;
+    private String imageSrc;
     @OneToMany(mappedBy="departement")
     @JsonIgnore
     private Set<Etudiant> etudiants;

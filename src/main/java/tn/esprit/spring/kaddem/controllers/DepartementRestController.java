@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 @RequestMapping("/departement")
 @Tag(name = "Departement 🏢 Management")
 public class DepartementRestController {

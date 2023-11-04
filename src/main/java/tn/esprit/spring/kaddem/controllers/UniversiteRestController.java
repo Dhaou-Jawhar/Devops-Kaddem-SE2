@@ -13,6 +13,7 @@ import java.util.Set;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 @RequestMapping("/universite")
 @Tag(name = "Universite 🏙 Management 📊")
 public class UniversiteRestController {

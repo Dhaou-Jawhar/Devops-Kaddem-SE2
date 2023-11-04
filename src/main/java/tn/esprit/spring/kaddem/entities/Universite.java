@@ -13,6 +13,7 @@ public class Universite implements Serializable{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer idUniv;
     private String nomUniv;
+    private String model;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Departement> departements;
@@ -52,4 +53,11 @@ public class Universite implements Serializable{
         this.nomUniv = nomUniv;
     }
 
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
 }
