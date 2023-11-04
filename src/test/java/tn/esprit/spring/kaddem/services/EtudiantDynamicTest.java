@@ -1,6 +1,5 @@
 package tn.esprit.spring.kaddem.services;
 
-
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,8 +29,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 @SpringBootTest
 @ActiveProfiles("test")
+class EtudiantDynamicTest {
 
-class TestDynamiqueEtudiantServiceImpl {
     @Autowired
     private EtudiantServiceImpl etudiantService;
 
@@ -60,6 +59,27 @@ class TestDynamiqueEtudiantServiceImpl {
 
     @AfterEach
     public void cleanup() {
+
+        // Définir les paramètres de connexion
+        String url = "jdbc:mysql://localhost:3306/kaddemdb";
+        String user = "root";
+        // String password = "your_password";
+
+        try {
+            // Établir une connexion à la base de données
+            Connection connection = DriverManager.getConnection(url, user, "");
+
+            // Créer un objet Statement
+            Statement statement = connection.createStatement();
+
+            // Exécuter une requête SQL pour supprimer toutes les tables
+            statement.executeUpdate("DROP DATABASE kaddemdb");
+
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
