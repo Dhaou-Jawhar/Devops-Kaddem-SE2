@@ -38,3 +38,4 @@ services:
       - /dev/kmsg
     privileged: true
     restart: unless-stopped
+    command: ["--address=192.168.33.10"]
