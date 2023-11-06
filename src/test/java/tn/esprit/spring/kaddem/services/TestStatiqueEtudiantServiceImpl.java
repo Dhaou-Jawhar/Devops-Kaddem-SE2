@@ -65,7 +65,7 @@ class TestStatiqueEtudiantServiceImpl {
 
     @Test
     void Etape1() {
-        log.info("<============================ Début du scénario de test ============================>");
+        System.out.println("<============================ Début du scénario de test ============================>");
 
         // Étape 1 : Ajouter trois étudiants
         Etudiant etudiant1 = new Etudiant();
@@ -91,7 +91,7 @@ class TestStatiqueEtudiantServiceImpl {
         assertNotNull(ajoutEtudiant2);
         assertNotNull(ajoutEtudiant3);
 
-        log.info("Étape 1 : Ajout de trois étudiants");
+        System.out.println("Étape 1 : Ajout de trois étudiants");
         System.out.println(ajoutEtudiant1);
         System.out.println(ajoutEtudiant2);
         System.out.println(ajoutEtudiant3);
