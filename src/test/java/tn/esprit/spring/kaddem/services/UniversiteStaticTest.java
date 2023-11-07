@@ -30,7 +30,8 @@ class UniversiteStaticTest {
     }
     @Test
     void testAddUniversite() {
-        Universite universityToAdd = new Universite("New University");
+        Universite universityToAdd = new Universite();
+        universityToAdd.setNomUniv("New University");
         when(universiteRepository.save(any(Universite.class))).thenReturn(universityToAdd);
 
         Universite addedUniversity = universiteService.addUniversite(universityToAdd);
@@ -42,7 +43,9 @@ class UniversiteStaticTest {
     @Test
     void testUpdateUniversite() {
         // Arrange
-        Universite existingUniversity = new Universite(1, "Existing University");
+        Universite existingUniversity = new Universite();
+        existingUniversity.setIdUniv(1);
+        existingUniversity.setNomUniv("Existing University");
 
         // Mock the repository behavior
         when(universiteRepository.findById(existingUniversity.getIdUniv())).thenReturn(Optional.of(existingUniversity));
@@ -68,7 +71,8 @@ class UniversiteStaticTest {
 
     @Test
     void testDeleteUniversite() {
-        Universite expectedUniversite = new Universite("ESPRIT");
+        Universite expectedUniversite = new Universite();
+        expectedUniversite.setNomUniv("ESPRIT");
         when(universiteRepository.findById(expectedUniversite.getIdUniv())).thenReturn(Optional.of(expectedUniversite));
         Universite retrievedUniversite = universiteService.retrieveUniversite(expectedUniversite.getIdUniv());
         assertEquals(expectedUniversite, retrievedUniversite);
@@ -83,7 +87,9 @@ class UniversiteStaticTest {
 
     @Test
     void testRetrieveDepartementsByUniversite() {
-        Universite university = new Universite(1, "Sample University");
+        Universite university = new Universite();
+        university.setIdUniv(1);
+        university.setNomUniv("Sample University");
         Set<Departement> associatedDepartments = new HashSet<>();
         associatedDepartments.add(new Departement(1, "Department 1"));
         associatedDepartments.add(new Departement(2, "Department 2"));
@@ -104,8 +110,11 @@ class UniversiteStaticTest {
 
         List<Universite> universities = new ArrayList<>();
 
-        Universite univer1 = new Universite("ESPRIT");
-        Universite univer2 = new Universite("PolyTech");
+        Universite univer1 = new Universite();
+        Universite univer2 = new Universite();
+
+        univer1.setNomUniv("ESPRIT");
+        univer2.setNomUniv("PolyTech");
 
 
         universities.add(univer1);
@@ -129,7 +138,8 @@ class UniversiteStaticTest {
     @Test
     void testRetrieveUniversite() {
 
-        Universite expectedUniversite = new Universite("ESPRIT");
+        Universite expectedUniversite = new Universite();
+        expectedUniversite.setNomUniv("ESPRIT");
 
         when(universiteRepository.findById(expectedUniversite.getIdUniv())).thenReturn(Optional.of(expectedUniversite));
 
