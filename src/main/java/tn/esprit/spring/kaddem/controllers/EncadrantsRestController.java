@@ -23,8 +23,8 @@ public class EncadrantsRestController {
         Encadrant encadrant = encadrantServices.addEncadrant(en);
         return encadrant;
     }
-    @DeleteMapping("/remove-universite/{ idEncadrant}")
-    public void deleteEncadrant(@PathVariable(" idEncadrant") Integer  idEncadrant) {
+    @DeleteMapping("/remove-Encadrant/{idEncadrant}")
+    public void deleteEncadrant(@PathVariable("idEncadrant") Integer idEncadrant) {
         encadrantServices.deleteEncadrant(idEncadrant);
     }
 }
