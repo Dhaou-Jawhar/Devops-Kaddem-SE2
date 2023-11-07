@@ -91,8 +91,14 @@ class UniversiteStaticTest {
         university.setIdUniv(1);
         university.setNomUniv("Sample University");
         Set<Departement> associatedDepartments = new HashSet<>();
-        associatedDepartments.add(new Departement(1, "Department 1"));
-        associatedDepartments.add(new Departement(2, "Department 2"));
+        Departement dep1 = new Departement();
+        dep1.setIdDepart(1);
+        dep1.setNomDepart("SE");
+        Departement dep2 = new Departement();
+        dep1.setIdDepart(2);
+        dep1.setNomDepart("CLOUD");
+        associatedDepartments.add(dep1);
+        associatedDepartments.add(dep2);
         university.setDepartements(associatedDepartments);
 
         when(universiteRepository.findById(university.getIdUniv())).thenReturn(Optional.of(university));
