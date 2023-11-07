@@ -140,6 +140,7 @@ class UniversiteStaticTest {
 
         Universite expectedUniversite = new Universite();
         expectedUniversite.setNomUniv("ESPRIT");
+        expectedUniversite.setModel("cup.glb");
 
         when(universiteRepository.findById(expectedUniversite.getIdUniv())).thenReturn(Optional.of(expectedUniversite));
 

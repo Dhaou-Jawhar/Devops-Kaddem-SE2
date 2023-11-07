@@ -9,10 +9,8 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@ToString
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Universite implements Serializable{
     @Id
