@@ -32,6 +32,7 @@ class UniversiteStaticTest {
     void testAddUniversite() {
         Universite universityToAdd = new Universite();
         universityToAdd.setNomUniv("New University");
+        universityToAdd.setModel("test.glb");
         when(universiteRepository.save(any(Universite.class))).thenReturn(universityToAdd);
 
         Universite addedUniversity = universiteService.addUniversite(universityToAdd);
@@ -46,6 +47,7 @@ class UniversiteStaticTest {
         Universite existingUniversity = new Universite();
         existingUniversity.setIdUniv(1);
         existingUniversity.setNomUniv("Existing University");
+        existingUniversity.setModel("test.glb");
 
         // Mock the repository behavior
         when(universiteRepository.findById(existingUniversity.getIdUniv())).thenReturn(Optional.of(existingUniversity));
@@ -59,6 +61,7 @@ class UniversiteStaticTest {
         // Act
         // Change the name of the existingUniversity
         existingUniversity.setNomUniv("Updated University Name");
+        existingUniversity.setModel("test.glb");
         Universite updatedUniversity = universiteService.updateUniversite(existingUniversity);
 
         // Assert
@@ -73,6 +76,7 @@ class UniversiteStaticTest {
     void testDeleteUniversite() {
         Universite expectedUniversite = new Universite();
         expectedUniversite.setNomUniv("ESPRIT");
+        expectedUniversite.setModel("test.glb");
         when(universiteRepository.findById(expectedUniversite.getIdUniv())).thenReturn(Optional.of(expectedUniversite));
         Universite retrievedUniversite = universiteService.retrieveUniversite(expectedUniversite.getIdUniv());
         assertEquals(expectedUniversite, retrievedUniversite);
@@ -90,6 +94,7 @@ class UniversiteStaticTest {
         Universite university = new Universite();
         university.setIdUniv(1);
         university.setNomUniv("Sample University");
+        university.setModel("test.glb");
         Set<Departement> associatedDepartments = new HashSet<>();
         Departement dep1 = new Departement();
         dep1.setIdDepart(1);
@@ -120,7 +125,9 @@ class UniversiteStaticTest {
         Universite univer2 = new Universite();
 
         univer1.setNomUniv("ESPRIT");
+        univer1.setModel("test.glb");
         univer2.setNomUniv("PolyTech");
+        univer2.setModel("test.glb");
 
 
         universities.add(univer1);
