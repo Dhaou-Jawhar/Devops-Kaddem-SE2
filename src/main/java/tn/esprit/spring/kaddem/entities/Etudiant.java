@@ -2,6 +2,9 @@ package tn.esprit.spring.kaddem.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
@@ -12,6 +15,9 @@ import javax.persistence.*;
 
 @SuppressWarnings("SpellCheckingInspection")
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Etudiant implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -32,77 +38,5 @@ public class Etudiant implements Serializable{
     @JsonIgnore
   //  private Set<Equipe> equipes ;
     private List<Equipe> equipes ;
-    public Etudiant() {
-        // TODO Auto-generated constructor stub
-    }
-
-    public Etudiant(String nomE, String prenomE) {
-        this.nomE = nomE;
-        this.prenomE = prenomE;
-    }
-
-    public Etudiant(String nomE, String prenomE, Option op) {
-        super();
-        this.nomE = nomE;
-        this.prenomE = prenomE;
-        this.op = op;
-    }
-
-    public Etudiant(Integer idEtudiant, String nomE, String prenomE, Option op) {
-        super();
-        this.idEtudiant = idEtudiant;
-        this.nomE = nomE;
-        this.prenomE = prenomE;
-        this.op = op;
-    }
-
-    public Set<Contrat> getContrats() {
-        return Contrats;
-    }
-
-    public void setContrats(Set<Contrat> contrats) {
-        Contrats = contrats;
-    }
-
-    public Departement getDepartement() {
-        return departement;
-    }
-
-    public void setDepartement(Departement departement) {
-        this.departement = departement;
-    }
-
-    public List<Equipe> getEquipes() {
-        return equipes;
-    }
-
-    public void setEquipes(List<Equipe> equipes) {
-        this.equipes = equipes;
-    }
-
-    public Integer getIdEtudiant() {
-        return idEtudiant;
-    }
-    public void setIdEtudiant(Integer idEtudiant) {
-        this.idEtudiant = idEtudiant;
-    }
-    public String getNomE() {
-        return nomE;
-    }
-    public void setNomE(String nomE) {
-        this.nomE = nomE;
-    }
-    public String getPrenomE() {
-        return prenomE;
-    }
-    public void setPrenomE(String prenomE) {
-        this.prenomE = prenomE;
-    }
-    public Option getOp() {
-        return op;
-    }
-    public void setOp(Option op) {
-        this.op = op;
-    }
 
 }
