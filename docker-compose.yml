@@ -20,7 +20,7 @@ services:
     ports:
       - 3307:3306
     environment:
-      MYSQL_DATABASE: test
+      MYSQL_DATABASE: kaddemdb
       MYSQL_ROOT_PASSWORD: root
 
 

@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 @SpringBootTest
 @ActiveProfiles("test")
-class TestDynamiqueEtudiantEtudiantServiceImpl {
+class TestDynamiqueEtudiantServiceImpl {
 
     @Autowired
     private EtudiantServiceImpl etudiantService;
@@ -56,29 +56,7 @@ class TestDynamiqueEtudiantEtudiantServiceImpl {
     }
 
     @AfterEach
-    public void cleanup() {
-
-        // Définir les paramètres de connexion
-        String url = "jdbc:mysql://localhost:3306/kaddemdb";
-        String user = "root";
-        // String password = "your_password";
-
-        try {
-            // Établir une connexion à la base de données
-            Connection connection = DriverManager.getConnection(url, user, "");
-
-            // Créer un objet Statement
-            Statement statement = connection.createStatement();
-
-            // Exécuter une requête SQL pour supprimer toutes les tables
-            statement.executeUpdate("DROP DATABASE kaddemdb");
-
-            // Fermer la connexion
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    public void cleanup() {}
 
 
     @TestFactory
