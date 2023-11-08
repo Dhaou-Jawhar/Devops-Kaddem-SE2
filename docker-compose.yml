@@ -1,23 +1,24 @@
 version: "3"
 services:
   springboot-app:
+
     image: houcem1307/kaddem_back-end:2.0.0
     restart: always
+    build: .
     ports:
       - 8066:8089
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/kaddemdb?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD:
-
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
   mysqldb:
     container_name: mysqldb
-    image: mysql:8.0
+    image: mysql
     volumes:
-      - /home/Kaddem/DevopsProject/db:/var/lib/mysql
+      -  /home/user/Desktop/db:/var/lib/mysql
     ports:
-      - 3306:3306
+      - 3307:3306
     environment:
       MYSQL_DATABASE: kaddemdb
-      MYSQL_ROOT_PASSWORD:
-
+      MYSQL_ROOT_PASSWORD: root
