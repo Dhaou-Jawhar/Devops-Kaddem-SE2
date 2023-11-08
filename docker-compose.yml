@@ -8,7 +8,6 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/kaddem?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
   mysqldb:
     container_name: mysqldb
     image: mysql:8.0
@@ -18,4 +17,4 @@ services:
       - 3306:3306
     environment:
       MYSQL_DATABASE: kaddem
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: ""
