@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/equipe")
+@CrossOrigin(origins = "*")
 public class EquipeRestController {
 	@Autowired
 	IEquipeService equipeService;
