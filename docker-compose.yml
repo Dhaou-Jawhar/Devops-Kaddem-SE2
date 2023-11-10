@@ -29,7 +29,7 @@ services:
     image:  jediditasnim/alpine:0.1-Angular
     build: .
     ports:
-      - "80:80"
+      - "8001:80"
 
 
 
