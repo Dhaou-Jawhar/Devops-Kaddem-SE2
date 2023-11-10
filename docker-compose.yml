@@ -26,7 +26,7 @@ services:
        MYSQL_ROOT_PASSWORD: root
 
   angular-app:
-    image: jediditasnim/angular
+    image:  jediditasnim/alpine:0.1-Angular
     build: .
     ports:
       - "80:80"
