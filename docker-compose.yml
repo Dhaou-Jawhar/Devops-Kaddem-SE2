@@ -25,6 +25,12 @@ services:
        MYSQL_DATABASE: test
        MYSQL_ROOT_PASSWORD: root
 
+  angular-app:
+    image: jediditasnim/angular
+    build: .
+    ports:
+      - "80:80"
+
 
 
 
