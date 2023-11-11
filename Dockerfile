@@ -1,11 +1,8 @@
-# Utilisez une image de base avec Java
 FROM openjdk:12-alpine
 
-# Copiez le jar de l'application dans l'image
-COPY  target/kaddem-*.jar /kaddem.jar
+#ENV PORT 8081
+#EXPOSE 8081
 
-# Définissez le port sur lequel l'application va écouter
+COPY target/kaddem-*.jar /kaddem.jar
 
-
-# Commande pour exécuter l'application lors du démarrage du conteneur
-CMD ["java", "-jar", "kaddem.jar"]
+CMD ["java" , "-jar", "/kaddem.jar"]
