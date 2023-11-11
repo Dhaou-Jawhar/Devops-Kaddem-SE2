@@ -1,13 +1,17 @@
 version: "3"
 services:
   springboot-app:
+    # container_name: spring-app
     image: eyatizaoui/alpine:1.0
     restart: always
     build: .
     ports:
-      - 8070:8089
-    depends_on:
-      - mysqldb
+      - 8066:8089
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
   mysqldb:
     container_name: mysqldb
     image: mysql
