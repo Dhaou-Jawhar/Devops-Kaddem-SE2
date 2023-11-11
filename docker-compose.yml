@@ -2,7 +2,7 @@ version: "3"
 services:
   springboot-app:
     # container_name: spring-app
-    image: eyatizaoui/alpine:1.0
+    image: eyatizaoui/alpine:1.0.0
     restart: always
     build: .
     ports:
