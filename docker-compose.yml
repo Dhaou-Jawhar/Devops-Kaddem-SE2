@@ -1,11 +1,15 @@
 version: "3"
 services:
+
   angular-app:
     container_name: angular-app
     image: hazem0419/alpine:0.0.1-ANGULAR
     restart: always
     ports:
       - 4201:4200
+    depends_on:
+      - springboot-app
+      - mysqldb
 
   springboot-app:
     container_name: spring-app
