@@ -6,7 +6,7 @@ services:
     image: hazem0419/alpine:0.0.1-ANGULAR
     restart: always
     ports:
-      - 4201:4200
+      - 8086:80
     depends_on:
       - springboot-app
       - mysqldb
