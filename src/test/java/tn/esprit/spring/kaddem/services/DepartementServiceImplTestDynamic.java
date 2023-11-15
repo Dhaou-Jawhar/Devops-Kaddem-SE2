@@ -53,7 +53,7 @@ class DepartementServiceImplTestDynamic {
         Departement adddep = departementService.addDepartement(dep);
         assertNotNull(adddep);
         assertEquals("amen1", adddep.getNomDepart());
-        System.out.println("Step 1: Add a University : Test Passed");
+        System.out.println("Step 1: Add a Departement : Test Passed");
     }
 
     @Test

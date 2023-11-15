@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import tn.esprit.spring.kaddem.entities.Departement;
 import tn.esprit.spring.kaddem.repositories.DepartementRepository;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Slf4j
@@ -28,7 +29,8 @@ public class DepartementServiceImpl implements IDepartementService{
 	}
 
 	public  Departement retrieveDepartement (Integer idDepart){
-		return departementRepository.findById(idDepart).get();
+		return departementRepository.findById(idDepart)
+				.orElseThrow(() -> new EntityNotFoundException("Département non trouvé pour l'ID : " + idDepart));
 	}
 	public  void deleteDepartement(Integer idDepartement){
 		Departement d=retrieveDepartement(idDepartement);
