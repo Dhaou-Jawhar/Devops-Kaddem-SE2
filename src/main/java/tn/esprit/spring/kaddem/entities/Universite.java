@@ -52,4 +52,6 @@ public class Universite implements Serializable{
         this.nomUniv = nomUniv;
     }
 
+    public void setModel(String s) {
+    }
 }
