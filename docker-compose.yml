@@ -2,8 +2,8 @@ version: "3"
 
 services:
   springboot-app:
-    container_name: Back-Compose
-    image: dhaoujawhar/validation:1.0-SPRING
+    container_name: Back-Compose2
+    image: dhaoujawhar/alpine:3.0-SPRING
     restart: always
     build: .
     ports:
