@@ -1,8 +1,9 @@
 version: "3"
+
 services:
   springboot-app:
-    # container_name: spring-app
-    image: dhaoujawhar/alpine:3.0-SPRING
+    container_name: Back-Compose
+    image: dhaoujawhar/validation:3.0-SPRING
     restart: always
     build: .
     ports:
@@ -12,13 +13,21 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_PORT: 3306
+
   mysqldb:
     container_name: mysqldb
     image: mysql
     volumes:
-      -  /home/user/Desktop/db:/var/lib/mysql
+      - /home/User/DESKTOP/db:/var/lib/mysql
     ports:
       - 3307:3306
     environment:
       MYSQL_DATABASE: test
       MYSQL_ROOT_PASSWORD: root
+
+  angular-app:
+    container_name: Front-Compose
+    image:  dhaoujawhar/validation:1.1-ANGULAR-AWS
+    build: .
+    ports:
+      - "8001:80"
